@@ -1,3 +1,3 @@
 export function AppHeader() {
-    return "החנות שלי"
+    return <h1> החנות שלי</h1>
 }
