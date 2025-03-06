@@ -1,7 +1,8 @@
 import './IceCream.css'
 
-export const IceCream = () => {
+export const IceCream = (props) => {
+
     return (
-        <div className="cup"></div>
+        <div className={props.serveType}></div>
     )
 }

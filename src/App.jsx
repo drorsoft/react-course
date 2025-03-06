@@ -27,7 +27,9 @@ function App() {
         </a>
       </div>
       <AppHeader />
-      <IceCream />
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <IceCream serveType={serveType} />
+      </div>
       <div className="card">
         <button onClick={() => toggleServeType()}>
           served in a {serveType}
