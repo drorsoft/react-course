@@ -1,28 +1,38 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
- 
-.cone {
-  position: relative;
-  margin-top: -20px;
-  height: 0px;
+
+.cone { 
+  margin-top: -20px; 
   width: 0px;
   border-right: 45px solid transparent;
   border-left: 45px solid transparent;
   border-top: 140px solid black;
-  z-index: 1;
+  border-radius: 3px; 
 }
 
 .cone::after {
   content: '';
   position: relative;  
-  top: -24px;  
+  top: -16px;  
   left: -38px;  
   border-right: 38px solid transparent;
   border-left: 38px solid transparent;
-  border-top: 112px solid tan; /* Border color */
-  z-index: -1; /* Ensure it's behind the .cone element */
+  border-top: 120px solid tan;  
+}
+
+.cup { 
+  margin-top: -20px; 
+  width: 0px;
+  border-right: 45px solid transparent;
+  border-left: 45px solid transparent;
+  border-top: 140px solid black;
+  border-radius: 3px; 
+}
+
+.cup::after {
+  content: '';
+  position: relative;  
+  top: -16px;  
+  left: -38px;  
+  border-right: 38px solid transparent;
+  border-left: 38px solid transparent;
+  border-top: 120px solid tan;  
 }
