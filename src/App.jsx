@@ -6,7 +6,14 @@ import './App.css'
 import { AppHeader } from './components/AppHeader'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [serveType, setServeType] = useState('cone') // cone | cup
+  function toggleServeType() {
+    if (serveType === 'cone') {
+      setServeType('cup')
+    } else {
+      setServeType('cone')
+    }
+  }
 
   return (
     <>
@@ -20,8 +27,8 @@ function App() {
       </div>
       <AppHeader />
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+        <button onClick={() => toggleServeType()}>
+          served in a {serveType}
         </button>
 
       </div>
