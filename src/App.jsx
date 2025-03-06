@@ -4,6 +4,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { AppHeader } from './components/AppHeader'
+import { IceCream } from './components/IceCream'
 
 function App() {
   const [serveType, setServeType] = useState('cone') // cone | cup
@@ -26,6 +27,7 @@ function App() {
         </a>
       </div>
       <AppHeader />
+      <IceCream />
       <div className="card">
         <button onClick={() => toggleServeType()}>
           served in a {serveType}
