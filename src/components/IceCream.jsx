@@ -1,8 +1,8 @@
 import './IceCream.css'
 
-export const IceCream = (props) => {
+export const IceCream = ({ serveType }) => {
 
     return (
-        <div className={props.serveType}></div>
+        <div className={serveType === 'cone' ? 'cone' : 'cup'}></div>
     )
 }

@@ -18,21 +18,14 @@ function App() {
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
+
       <AppHeader />
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <IceCream serveType={serveType} />
       </div>
       <div className="card">
         <button onClick={() => toggleServeType()}>
-          served in a {serveType}
+          {serveType === 'cone' ? 'גביע' : 'כוס'}
         </button>
 
       </div>
