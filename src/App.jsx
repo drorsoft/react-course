@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="w-screen h-screen flex flex-col  ">
       <AppHeader />
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <div className='flex flex-col items-center justify-center   h-64'>
         <IceCream serveType={serveType} />
       </div>
       <div className="bg-background-main flex-1">

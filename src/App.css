@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @theme   {
-  --color-primary: #646cff;
-  --color-secondary: #61dafb;
+  --color-primary: #00011b;
+  --color-secondary: #a5dcec;
   --color-accent: #f8f8f8;
   --color-background-main: #fbd7dc;
   --color-background-accent: #fd8091;
@@ -9,16 +9,3 @@
  
  
  
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
