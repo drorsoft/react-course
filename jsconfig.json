@@ -2,8 +2,11 @@
     "compilerOptions": {
         "checkJs": true,
         "jsx": "react-jsx",
+        "module": "esnext",
+        "moduleResolution": "bundler",
         "types": [
             "vite/client",
+            "vite.config.mts"
         ],
     },
     "exclude": [

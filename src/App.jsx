@@ -1,7 +1,4 @@
-
 import { useState } from 'react'
-
-import './App.css'
 import { AppHeader } from './components/AppHeader'
 import { IceCream } from './components/IceCream'
 
