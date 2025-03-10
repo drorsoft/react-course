@@ -1,5 +1,7 @@
 export function AppHeader() {
-    return <h1 className=
-        "bg-amber-200 border-2 border-red-700 rounded p-4 font-bold"
-    > החנות שלי</h1>
+    return (<nav className="flex flex-row justify-center bg-background-accent">
+        <h1 className=
+            " m-0 text-small rounded p-2  font-bold"
+        > החנות שלי</h1>
+    </nav>)
 }

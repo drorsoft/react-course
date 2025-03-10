@@ -13,20 +13,17 @@ function App() {
   }
 
   return (
-    <>
-
+    <div className="w-screen h-screen flex flex-col  ">
       <AppHeader />
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <IceCream serveType={serveType} />
       </div>
-      <div className="card">
+      <div className="bg-background-main flex-1">
         <button onClick={() => toggleServeType()}>
           {serveType === 'cone' ? 'גביע' : 'כוס'}
         </button>
-
       </div>
-
-    </>
+    </div>
   )
 }
 
