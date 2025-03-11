@@ -1,5 +1,6 @@
  
 .cone { 
+  position: relative;
   width: 0px;
   border-right: 45px solid transparent;
   border-left: 45px solid transparent;
@@ -9,8 +10,8 @@
 
 .cone::after {
   content: '';
-  position: relative;  
-  top: -16px;  
+  position: absolute;  
+  top: -134px;  
   left: -38px;  
   border-right: 38px solid transparent;
   border-left: 38px solid transparent;
