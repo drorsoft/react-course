@@ -15,7 +15,6 @@ function App() {
 
   return (
     <div className="w-screen h-screen flex flex-col  ">
-      <TailwindExamples />
       <AppHeader />
       <div className='flex flex-col items-center justify-center   h-64'>
         <IceCream serveType={serveType} />
