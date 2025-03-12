@@ -1,4 +1,5 @@
 import { IceCreamTaste } from '../models/IceCreamTaste'
+import cherry from "../assets/svg/cherry.png"
 import './IceCream.css'
 
 export const IceCream = ({ serveType, taste }) => {
@@ -18,7 +19,12 @@ export const IceCream = ({ serveType, taste }) => {
 
     return (
         <div className='flex flex-col items-center justify-center'>
-            {taste ? (<div id='ice-cream-scoop' className={`bg-amber-400 w-22 h-22 rounded-full relative top-8 ring-1 ring-slate-400  `} style={{ backgroundColor: scoopColor(taste) }}> </div>) : null}
+
+            {taste ? (
+                <div id='ice-cream-scoop' className={`bg-amber-400 w-22 h-22 rounded-full relative top-8 ring-1 ring-slate-400  `} style={{ backgroundColor: scoopColor(taste) }}>
+                    <img src={cherry} alt='cherry' className='absolute top-0 left-0 w-6 h-6' />
+                </div>
+            ) : null}
 
 
             <div className={serveType === 'cone' ? 'cone' : 'cup'}>
