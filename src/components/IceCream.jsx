@@ -22,7 +22,7 @@ export const IceCream = ({ serveType, taste }) => {
 
             {taste ? (
                 <div id='ice-cream-scoop' className={`bg-amber-400 w-22 h-22 rounded-full relative top-8 ring-1 ring-slate-400  `} style={{ backgroundColor: scoopColor(taste) }}>
-                    <img src={cherry} alt='cherry' className='absolute top-0 left-0 w-6 h-6' />
+                    <img src={cherry} alt='cherry' className='absolute -top-10 left-0 w-6 h-12' />
                 </div>
             ) : null}
 
