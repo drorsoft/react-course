@@ -20,7 +20,7 @@ function App() {
     <div className="w-screen h-screen flex flex-col  ">
       <AppHeader />
       <div className='flex flex-col items-center justify-center   h-64'>
-        <IceCream serveType={serveType} taste={taste} />
+        <IceCream serveType={serveType} taste={taste} topping={toppings} />
       </div>
       <div className="bg-background-main gap-4 flex-1 flex flex-col justify-start items-center p-4">
         <div id='button-container' className='flex flex-col '>
