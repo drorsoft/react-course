@@ -1,6 +1,5 @@
 <style>*{direction:rtl;}</style>
- ChenPeleg: Turn this text to an md file like lesson 01
-
+ 
 קורס ריאקט שיעור ב'
 
 פתיחה
