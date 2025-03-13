@@ -1,6 +1,6 @@
 import { IceCreamTaste } from '../../models/IceCreamTaste'
-import './IceCream.css'
-import { Toppings } from './IceCreamVisualTopings'
+import './IceCreamVisual.css'
+import { Toppings } from './IceCreamVisualToppings'
 
 export const IceCream = ({ serveType, taste, topping }) => {
 
