@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { AppHeader } from "../components/AppHeader";
-import { IceCream } from "../components/IceCream";
-import { IceCreamTaste } from "../models/IceCreamTaste";
+import { IceCream } from "../components/IceCreamVisual/IceCreamVisual";
 import { IceCreamTopping } from "../models/IceCreamTopping";
 import { IceCreamBuilderControls } from "../components/IceCreamBuilderControls";
 

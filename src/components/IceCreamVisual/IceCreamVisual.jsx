@@ -1,8 +1,8 @@
-import { IceCreamTaste } from '../models/IceCreamTaste'
+import { IceCreamTaste } from '../../models/IceCreamTaste'
 import cherry from "../assets/svg/cherry.png"
 import sprinkles from "../assets/images/sprinkles.png"
 import './IceCream.css'
-import { IceCreamTopping } from '../models/IceCreamTopping';
+import { IceCreamTopping } from '../../models/IceCreamTopping';
 
 const Toppings = ({ topping }) => {
     switch (topping) {
