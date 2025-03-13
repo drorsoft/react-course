@@ -1,6 +1,8 @@
 import { IceCreamTopping } from "../../models/IceCreamTopping";
 import cherry from "../assets/svg/cherry.png"
 import sprinkles from "../assets/images/sprinkles.png"
+
+
 export const Toppings = ({ topping }) => {
     switch (topping) {
         case IceCreamTopping.Cherry:
