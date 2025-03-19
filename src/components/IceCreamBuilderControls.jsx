@@ -7,8 +7,6 @@ export const IceCreamBuilderControls = ({ serveType, taste, toppings, toggleServ
     const buttonRef = useRef(null);
     const { isAuth } = useContext(GlobalContext);
 
-    const isUserAuth = useMemo(() => isAuth, [isAuth]);
-
 
     useEffect(() => {
         buttonRef.current.focus()
@@ -50,6 +48,6 @@ p-2 w-22 ${toppings === IceCreamTopping.None ? 'bg-background-accent' : 'bg-seco
 
 
         </div>
-        {isUserAuth ? <button className="p-2 w-22 bg-white">לתשלום</button> : null}
+        {isAuth ? <button className="p-2 w-22 bg-white">לתשלום</button> : null}
     </div>
 }
