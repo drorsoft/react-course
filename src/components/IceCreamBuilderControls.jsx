@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react"
 import { IceCreamTaste } from "../models/IceCreamTaste"
 import { IceCreamTopping } from "../models/IceCreamTopping"
 
-export const IceCreamBuilderControls = ({ serveType, taste, toppings, toggleServeType, setTaste, setToppings }) => {
+export const IceCreamBuilderControls = ({ serveType, taste, toppings, toggleServeType, setTaste, setToppings, isUserAuth }) => {
     const buttonRef = useRef(null)
 
     useEffect(() => {
@@ -43,6 +43,8 @@ p-2 w-22 ${toppings === IceCreamTopping.None ? 'bg-background-accent' : 'bg-seco
                 סוכריות
             </button>
 
+
         </div>
+        {isUserAuth ? <button className="p-2 w-22 bg-white">לתשלום</button> : null}
     </div>
 }

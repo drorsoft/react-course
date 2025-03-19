@@ -5,7 +5,7 @@ import { IceCreamTopping } from "../models/IceCreamTopping";
 import { IceCreamBuilderControls } from "../components/IceCreamBuilderControls";
 
 
-export const IceCreamBuilderPage = () => {
+export const IceCreamBuilderPage = ({ isUserAuth }) => {
     const [serveType, setServeType] = useState('cone') // cone | cup
     const [taste, setTaste] = useState(null) // vanilla | chocolate | strawberry
     const [toppings, setToppings] = useState(IceCreamTopping.None) // none | cherry | sprinkles
@@ -24,6 +24,7 @@ export const IceCreamBuilderPage = () => {
                 <IceCream serveType={serveType} taste={taste} topping={toppings} />
             </div>
             <IceCreamBuilderControls serveType={serveType}
+                isUserAuth={isUserAuth}
                 taste={taste} toppings={toppings} toggleServeType={toggleServeType} setTaste={setTaste} setToppings={setToppings} />
 
         </div>
