@@ -1,9 +1,14 @@
-import { useEffect, useRef } from "react"
+import { useContext, useEffect, useMemo, useRef } from "react"
 import { IceCreamTaste } from "../models/IceCreamTaste"
 import { IceCreamTopping } from "../models/IceCreamTopping"
+import { GlobalContext } from "../context/globalContext";
 
-export const IceCreamBuilderControls = ({ serveType, taste, toppings, toggleServeType, setTaste, setToppings, isUserAuth }) => {
-    const buttonRef = useRef(null)
+export const IceCreamBuilderControls = ({ serveType, taste, toppings, toggleServeType, setTaste, setToppings }) => {
+    const buttonRef = useRef(null);
+    const { isAuth } = useContext(GlobalContext);
+
+    const isUserAuth = useMemo(() => isAuth, [isAuth]);
+
 
     useEffect(() => {
         buttonRef.current.focus()
