@@ -1,7 +1,15 @@
+import { useEffect, useRef } from "react"
 import { IceCreamTaste } from "../models/IceCreamTaste"
 import { IceCreamTopping } from "../models/IceCreamTopping"
 
 export const IceCreamBuilderControls = ({ serveType, taste, toppings, toggleServeType, setTaste, setToppings }) => {
+    const buttonRef = useRef(null)
+
+    useEffect(() => {
+        buttonRef.current.focus()
+    }, [])
+
+
     return <div className="bg-background-main gap-4 flex-1 flex flex-col justify-start items-center p-4">
         <div id='button-container' className='flex flex-col '>
             <button className={`p-2 w-12 bg-background-accent text-black hover:ring-1 ring-purple-700 rounded`} onClick={() => toggleServeType()}>
@@ -9,7 +17,7 @@ export const IceCreamBuilderControls = ({ serveType, taste, toppings, toggleServ
             </button>
         </div>
         <div id='taste-container' className='flex flex-row gap-4'>
-            <button className={`
+            <button ref={buttonRef} className={`
 p-2 w-22 ${taste === IceCreamTaste.Vanilla ? 'bg-background-accent' : 'bg-secondary'}  text-black hover:ring-1 ring-purple-700 rounded
 `} onClick={() => setTaste(IceCreamTaste.Vanilla)}>
                 וניל
