@@ -1,9 +1,14 @@
+import { useMemo } from 'react'
 import { IceCreamTaste } from '../../models/IceCreamTaste'
 import { IceCreamTopping } from '../../models/IceCreamTopping'
 import './IceCreamVisual.css'
 import { Toppings } from './IceCreamVisualToppings'
 
+
+
+
 export const IceCream = ({ serveType, taste, topping }) => {
+    const memoToppings = useMemo(() => <Toppings topping={topping} />, [topping])
 
     const scoopColor = (taste) => {
         switch (taste) {
@@ -23,8 +28,7 @@ export const IceCream = ({ serveType, taste, topping }) => {
 
             {taste ? (
                 <div id='ice-cream-scoop' className={`bg-amber-400 w-22 h-22 rounded-full relative top-8 ring-1 ring-slate-400  `} style={{ backgroundColor: scoopColor(taste) }}>
-                    {topping !== IceCreamTopping.None ? <Toppings topping={topping} /> : null}
-
+                    {memoToppings}
                 </div>
             ) : null}
 
