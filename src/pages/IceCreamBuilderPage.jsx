@@ -17,7 +17,7 @@ export const IceCreamBuilderPage = () => {
     }
 
     return (
-        <div className=" flex flex-col  ">
+        <div className=" flex flex-col  h-full">
             <div className='flex flex-col items-center justify-center   h-64'>
                 <IceCream serveType={serveType} taste={taste} topping={toppings} />
             </div>
