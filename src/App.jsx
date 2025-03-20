@@ -1,13 +1,19 @@
 import { useState } from "react"
 import { IceCreamBuilderPage } from "./pages/IceCreamBuilderPage"
 import { GlobalContextProvider } from "./context/globalContextProvider"
-import { Router, RouterProvider } from "react-router"
-import { routes } from "./router/routes"
+import { BrowserRouter, Outlet, Router, RouterProvider } from "react-router"
+import { AppRoutes } from "./router/routes"
+import { Layout } from "./layout/Layout"
 
 export const App = () => {
 
-  return <GlobalContextProvider>
-    <RouterProvider router={routes} />
-  </GlobalContextProvider >
+  return (
+    <GlobalContextProvider><BrowserRouter>
+      <Layout>
+        <AppRoutes />
+      </Layout>
+    </BrowserRouter>
+
+    </GlobalContextProvider >)
 }
 
