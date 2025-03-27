@@ -1,4 +1,4 @@
-export const About = () => {
+export const Orders = () => {
     return (
         <div>
             <h1>About</h1>

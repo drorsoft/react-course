@@ -8,11 +8,12 @@ import { Layout } from "./layout/Layout"
 export const App = () => {
 
   return (
-    <GlobalContextProvider><BrowserRouter>
-      <Layout>
-        <AppRoutes />
-      </Layout>
-    </BrowserRouter>
+    <GlobalContextProvider>
+      <BrowserRouter>
+        <Layout>
+          <AppRoutes />
+        </Layout>
+      </BrowserRouter>
 
     </GlobalContextProvider >)
 }
