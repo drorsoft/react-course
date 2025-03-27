@@ -13,9 +13,12 @@ export const AppRoutes = () => {
     return <Routes>
         <Route path="/" element={<IceCreamBuilderPage />} />
         <Route path="/orders" element={<Orders />} />
-        <ProtectedRoute isAllowed={isAuth}>
-            <Route path="/order/:orderId" element={<Order />} />
-        </ProtectedRoute>
+
+        <Route path="/order/:orderId" element={
+            <ProtectedRoute isAllowed={isAuth}>
+                <Order />
+            </ProtectedRoute>} />
+
     </Routes>
 
 }
