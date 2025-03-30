@@ -7,18 +7,19 @@ import { Order } from "../pages/Order";
 import { ProtectedRoute } from "./ProtectedRoute";
 import { useContext } from "react";
 import { GlobalContext } from "../context/globalContext";
+import { Checkout } from "../pages/Checkout";
 
 export const AppRoutes = () => {
     const { isAuth } = useContext(GlobalContext);
-    return <Routes>
-        <Route path="/" element={<IceCreamBuilderPage />} />
-        <Route path="/orders" element={<Orders />} />
-
-        <Route path="/order/:orderId" element={
-            <ProtectedRoute isAllowed={isAuth}>
-                <Order />
-            </ProtectedRoute>} />
-
-    </Routes>
+    return (
+        <Routes>
+            <Route path="/" element={<IceCreamBuilderPage />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/order/:orderId" element={
+                <ProtectedRoute isAllowed={isAuth}>
+                    <Order />
+                </ProtectedRoute>} />
+        </Routes>)
 
 }

@@ -8,7 +8,7 @@ export function AppHeader() {
         <div id="nav-buttons-container" className="text-sm absolute right-0 h-full flex flex-row ">
             <NavLink to={"/"} className={({ isActive }) => `text-xs p-3 ${isActive ? 'bg-amber-400' : 'bg-amber-secondary'} flex flex-row items-center justify-center h-full `}>בניית גלידה
             </NavLink>
-            <NavLink to={"/orders"} className={({ isActive }) => `text-xs p-3 ${isActive ? 'bg-amber-400' : 'bg-amber-secondary'} flex flex-row items-center justify-center h-full `}>הזמנות
+            <NavLink to={"/checkout"} className={({ isActive }) => `text-xs p-3 ${isActive ? 'bg-amber-400' : 'bg-amber-secondary'} flex flex-row items-center justify-center h-full `}>הזמנה
             </NavLink>
 
 
