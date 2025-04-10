@@ -1,4 +1,5 @@
 export const TextInput = ({ label, value, onChange, ...props }) => {
+
     return (
         <div className=" ">
             <label className="flex flex-col gap-2 w-full">
@@ -9,7 +10,6 @@ export const TextInput = ({ label, value, onChange, ...props }) => {
                     {...props}
                     className={`p-2 outline-1  outline-gray-300 
                         focus:outline-2 focus:outline-background-accent rounded-md w-full`}
-                    type="text"
                     value={value}
                     onChange={(e) => onChange(e.target.value)}
                 />
