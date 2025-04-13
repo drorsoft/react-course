@@ -1,4 +1,5 @@
 export const AppSelect = ({ label, value, options, onChange, errorText, ...props }) => {
+
     return (
         <div className=" ">
             <label className="flex flex-col gap-2 w-full relative">
@@ -12,6 +13,7 @@ export const AppSelect = ({ label, value, options, onChange, errorText, ...props
                     value={value}
                     onChange={(e) => onChange(e.target.value)}
                 >
+                    <option value={''}  ></option>
                     {options.map((option, index) => (
                         <option key={index} value={option.value}>
                             {option.label}
