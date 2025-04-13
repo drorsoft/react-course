@@ -6,9 +6,7 @@ import { isValidEmail } from "../validators/isValidEmail";
 
 export const Checkout = () => {
 
-    const phoneRegex = new RegExp(/^\d{10}$/);
 
-    console.log('0541234567', phoneRegex.test(' 0541234567'));
 
     const [order, setOrder] = useState({
         name: '',
@@ -42,8 +40,8 @@ export const Checkout = () => {
             errors.phone = 'נא להכניס מספר טלפון תקין (10 ספרות)'; //  
         }
 
-        if (!errors.phone && !isValidEmail(order.email)) {
-            errors.phone = 'נא להכניס מספר טלפון תקין (10 ספרות)'; //  
+        if (!errors.email && !isValidEmail(order.email)) {
+            errors.email = 'נא להכניס כתובת דואל תקינה'; //  
         }
 
 

@@ -1,4 +1,4 @@
 export const isValidEmail = (phone) => {
-    const phoneRegex = new RegExp(/^\d{10}$/);
+    const phoneRegex = new RegExp(/.+@.+\..+/);
     return phoneRegex.test(phone)
 }
