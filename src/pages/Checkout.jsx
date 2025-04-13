@@ -28,8 +28,7 @@ export const Checkout = () => {
         };
         for (const key in order) {
             if (order[key].trim() === '') {
-                console.log(key, order[key]);
-                // errors[key] = 'שדה חובה';
+                errors[key] = 'שדה חובה';
             }
         }
 
