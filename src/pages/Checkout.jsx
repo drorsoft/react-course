@@ -3,6 +3,7 @@ import { TextInput } from "../UI/TextInput";
 import { AppSelect } from "../UI/AppSelect";
 
 export const Checkout = () => {
+
     const [order, setOrder] = useState({
         name: '',
         email: '',
@@ -11,13 +12,18 @@ export const Checkout = () => {
         paymentMethod: ''
     });
 
+    const submitHandler = (e) => {
+        e.preventDefault();
+        console.log(order);
+    }
+
     return (
         <section className="p-20 w-full h-full flex flex-col items-center justify-start">
             <div id={'checkout-container'} className="w-96   border-2 border-slate-400 shadow  rounded-lg p-10 flex flex-col items-start justify-start gap-3">
                 <h1 className="text-xl font-bold">
                     הזמנת גלידה
                 </h1>
-                <form className="flex flex-col gap-4 w-full">
+                <form onSubmit={submitHandler} className="flex flex-col gap-4 w-full">
                     <div  >
 
                         <TextInput
@@ -81,6 +87,7 @@ export const Checkout = () => {
 
 
                     </div>
+                    <button type="submit" className="bg-slate-500 text-white p-2 rounded-md hover:bg-slate-600 transition-all duration-200"> שליחה</button>
 
 
                 </form>
