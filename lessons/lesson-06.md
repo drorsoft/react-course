@@ -1,8 +1,6 @@
 <style>*{direction:rtl;}</style>
 Please format this as an md file (in hebrew)
-
-ChenPeleg: Please format this as an md file (in hebrew)
-
+ 
  # קורס ריאקט חלק ו' - טפסים
 
 פתיחה ## 
