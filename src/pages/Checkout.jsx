@@ -11,10 +11,35 @@ export const Checkout = () => {
         address: '',
         paymentMethod: ''
     });
+    const [validationErrors, setValidationErrors] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        address: '',
+        paymentMethod: ''
+    });
+    const validateForm = () => {
+        const errors = {
+            name: '',
+            email: '',
+            phone: '',
+            address: '',
+            paymentMethod: ''
+        };
+        for (const key in order) {
+            if (order[key].trim() === '') {
+                console.log(key, order[key]);
+                // errors[key] = 'שדה חובה';
+            }
+        }
+
+        setValidationErrors(errors);
+
+    }
 
     const submitHandler = (e) => {
         e.preventDefault();
-        console.log(order);
+        validateForm();
     }
 
     return (
@@ -30,6 +55,7 @@ export const Checkout = () => {
                             placeholder={'שם פרטי ושם משפחה'}
                             value={order.name}
                             label={'שם'}
+                            errorText={validationErrors.name}
                             onChange={(value) => setOrder(
                                 {
                                     ...order,
@@ -42,6 +68,7 @@ export const Checkout = () => {
                             type={'email'}
                             value={order.email}
                             label={'אימייל'}
+                            errorText={validationErrors.email}
                             onChange={(value) => setOrder(
                                 {
                                     ...order,
@@ -53,6 +80,7 @@ export const Checkout = () => {
                             value={order.phone}
                             type={'tel'}
                             label={'טלפון'}
+                            errorText={validationErrors.phone}
                             onChange={(value) => setOrder(
                                 {
                                     ...order,
@@ -63,6 +91,7 @@ export const Checkout = () => {
                             placeholder={'כתובת'}
                             value={order.address}
                             label={'כתובת'}
+                            errorText={validationErrors.address}
                             onChange={(value) => setOrder(
                                 {
                                     ...order,
@@ -72,6 +101,7 @@ export const Checkout = () => {
                         <AppSelect
                             label={'שיטת תשלום'}
                             value={order.paymentMethod}
+                            errorText={validationErrors.paymentMethod}
                             onChange={(value) => setOrder(
                                 {
                                     ...order,

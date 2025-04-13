@@ -1,4 +1,4 @@
-export const AppSelect = ({ label, value, options, onChange, ...props }) => {
+export const AppSelect = ({ label, value, options, onChange, errorText, ...props }) => {
     return (
         <div className=" ">
             <label className="flex flex-col gap-2 w-full relative">
@@ -20,6 +20,9 @@ export const AppSelect = ({ label, value, options, onChange, ...props }) => {
 
                 </select>
                 <span className="w-2 h-2 absolute top-11 left-4 rotate-45 font-bold text-slate-500 border-r-2 border-b-2 border-slate-400">
+                </span>
+                <span className="text-xs text-red-800 h-5  ">
+                    {errorText}
                 </span>
             </label>
         </div>
