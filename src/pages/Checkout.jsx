@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { TextInput } from "../UI/TextInput";
+import { AppSelect } from "../UI/AppSelect";
 
 export const Checkout = () => {
     const [order, setOrder] = useState({
@@ -12,7 +13,7 @@ export const Checkout = () => {
 
     return (
         <section className="p-20 w-full h-full flex flex-col items-center justify-start">
-            <div id={'checkout-container'} className="w-96 h-3/4 border-2 border-slate-400 shadow  rounded-lg p-10 flex flex-col items-start justify-start gap-3">
+            <div id={'checkout-container'} className="w-96   border-2 border-slate-400 shadow  rounded-lg p-10 flex flex-col items-start justify-start gap-3">
                 <h1 className="text-xl font-bold">
                     הזמנת גלידה
                 </h1>
@@ -20,6 +21,7 @@ export const Checkout = () => {
                     <div  >
 
                         <TextInput
+                            placeholder={'שם פרטי ושם משפחה'}
                             value={order.name}
                             label={'שם'}
                             onChange={(value) => setOrder(
@@ -28,6 +30,55 @@ export const Checkout = () => {
                                     name: value
                                 }
                             )} />
+                        {/* add all the other things */}
+                        <TextInput
+                            placeholder={'אימייל'}
+                            type={'email'}
+                            value={order.email}
+                            label={'אימייל'}
+                            onChange={(value) => setOrder(
+                                {
+                                    ...order,
+                                    email: value
+                                }
+                            )} />
+                        <TextInput
+                            placeholder={'טלפון'}
+                            value={order.phone}
+                            type={'tel'}
+                            label={'טלפון'}
+                            onChange={(value) => setOrder(
+                                {
+                                    ...order,
+                                    phone: value
+                                }
+                            )} />
+                        <TextInput
+                            placeholder={'כתובת'}
+                            value={order.address}
+                            label={'כתובת'}
+                            onChange={(value) => setOrder(
+                                {
+                                    ...order,
+                                    address: value
+                                }
+                            )} />
+                        <AppSelect
+                            label={'שיטת תשלום'}
+                            value={order.paymentMethod}
+                            onChange={(value) => setOrder(
+                                {
+                                    ...order,
+                                    paymentMethod: value
+                                }
+                            )}
+
+                            options={[
+                                { label: 'אשראי', value: 'credit' },
+                                { label: 'מזומן', value: 'cash' },
+                                { label: 'ביט', value: 'bit' },
+                            ]} />
+
 
                     </div>
 
