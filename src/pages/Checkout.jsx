@@ -23,7 +23,7 @@ export const Checkout = () => {
                 <h1 className="text-xl font-bold">
                     הזמנת גלידה
                 </h1>
-                <form onSubmit={submitHandler} className="flex flex-col gap-4 w-full">
+                <form onSubmit={submitHandler} className="flex flex-col gap-4 w-full" noValidate>
                     <div  >
 
                         <TextInput
@@ -36,7 +36,7 @@ export const Checkout = () => {
                                     name: value
                                 }
                             )} />
-                        {/* add all the other things */}
+
                         <TextInput
                             placeholder={'אימייל'}
                             type={'email'}
