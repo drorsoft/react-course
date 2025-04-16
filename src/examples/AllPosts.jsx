@@ -1,13 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react"
 
-export const NetworkRequests = () => {
-    const [firstPost, setFirstPost] = useState(null);
+export const AllPosts = () => {
+    const [allPosts, setAllPosts] = useState(null);
     useEffect(() => {
         const fetchData = async () => {
             const response = await axios.get("https://json-placeholder.mock.beeceptor.com/posts");
-            const firstPost = response.data[0];
-            setFirstPost(firstPost);
+
+            setAllPosts(response.data);
         }
         fetchData();
     }, [])
@@ -16,9 +16,15 @@ export const NetworkRequests = () => {
         Network requests
         <div dir="ltr" className="flex flex-row gap-4 justify-start    w-full h-44 p-2  ">
 
-            {firstPost ? (<div>
-                <h1 className="font-bold mb-5"> {firstPost.title} </h1>
-                <div>{firstPost.body}</div>
+            {allPosts ? (<div className="flex flex-col gap-5">
+                {
+                    allPosts.map((post) => <div key={post.id} className="w-3/4    rounded-md p-2 flex flex-col items-start justify-start gap-2 border border-black">
+                        <h1 className="font-bold mb-5"> {post.title} </h1>
+                        <div>{post.body}</div>
+                    </div>)
+                }
+
+
             </div>) : (<span>Loading...</span>)}
 
 
