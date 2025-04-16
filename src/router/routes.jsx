@@ -17,7 +17,7 @@ export const AppRoutes = () => {
         <Routes>
             <Route path="/" element={<IceCreamBuilderPage />} />
             <Route path="/checkout" element={<Checkout />} />
-            <Route path="/requests" element={<AllPosts />} />
+            <Route path="/all-posts" element={<AllPosts />} />
             <Route path="/post/:postId" element={<Post />} />
             <Route path="/orders" element={<Orders />} />
             <Route path="/order/:orderId" element={

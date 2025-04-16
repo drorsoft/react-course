@@ -8,8 +8,14 @@ export const Post = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await axios.get(`https://json-placeholder.mock.beeceptor.com/posts/${postId}`);
-            setPost(response.data);
+            // This is a mock endpoint, so it will return the same data for every id. 
+            // this is the correct way to do it:
+            // const response = await axios.get(`https://jsonplaceholder.typicode.com/posts/${postId}`);
+            //  setPost(response.data);
+            const response = await axios.get(`https://json-placeholder.mock.beeceptor.com/posts`);
+
+            const post = response.data.find((post) => post.id === parseInt(postId));
+            setPost(post);
         }
         fetchData();
     }, [])

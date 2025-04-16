@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react"
+import { NavLink } from "react-router";
 
 export const AllPosts = () => {
     const [allPosts, setAllPosts] = useState(null);
@@ -18,10 +19,11 @@ export const AllPosts = () => {
 
             {allPosts ? (<div className="flex flex-col gap-5">
                 {
-                    allPosts.map((post) => <div key={post.id} className="w-3/4    rounded-md p-2 flex flex-col items-start justify-start gap-2 border border-black">
+                    allPosts.map((post) => <NavLink key={post.id} to={`/post/${post.id}`}><div className="w-3/4    rounded-md p-2 flex flex-col items-start justify-start gap-2 border border-black">
+
                         <h1 className="font-bold mb-5"> {post.title} </h1>
                         <div>{post.body}</div>
-                    </div>)
+                    </div></NavLink>)
                 }
 
 
