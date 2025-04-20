@@ -5,9 +5,6 @@ import { isValidMobilePhone } from "../validators/isValidMobilePhone";
 import { isValidEmail } from "../validators/isValidEmail";
 
 export const Checkout = () => {
-
-
-
     const [order, setOrder] = useState({
         name: '',
         email: '',
@@ -52,6 +49,7 @@ export const Checkout = () => {
     const submitHandler = (e) => {
         e.preventDefault();
         validateForm();
+        console.log('order', order);
     }
 
     return (

@@ -7,9 +7,9 @@ export const AllPosts = () => {
     useEffect(() => {
         const fetchData = async () => {
             const response = await axios.get("https://json-placeholder.mock.beeceptor.com/posts");
-
             setAllPosts(response.data);
         }
+
         fetchData();
     }, [])
 
