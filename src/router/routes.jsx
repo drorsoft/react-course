@@ -2,7 +2,7 @@ import { BrowserRouter, createBrowserRouter, Route } from "react-router";
 import { IceCreamBuilderPage } from "../pages/IceCreamBuilderPage";
 
 import { Routes } from "react-router";
-import { Orders } from "../pages/Orders";
+import { OrdersHistory } from "../pages/OrdersHistory";
 import { Order } from "../pages/Order";
 import { ProtectedRoute } from "./ProtectedRoute";
 import { useContext } from "react";
@@ -19,7 +19,7 @@ export const AppRoutes = () => {
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/all-posts" element={<AllPosts />} />
             <Route path="/post/:postId" element={<Post />} />
-            <Route path="/orders" element={<Orders />} />
+            <Route path="/orders-history" element={<OrdersHistory />} />
             <Route path="/order/:orderId" element={
                 <ProtectedRoute isAllowed={isAuth}>
                     <Order />

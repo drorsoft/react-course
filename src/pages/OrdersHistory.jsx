@@ -1,4 +1,4 @@
-export const Orders = () => {
+export const OrdersHistory = () => {
     return (
         <div>
             <h1>About</h1>

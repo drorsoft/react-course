@@ -10,6 +10,8 @@ export function AppHeader() {
             </NavLink>
             <NavLink to={"/checkout"} className={({ isActive }) => `text-xs p-3 ${isActive ? 'bg-amber-400' : 'bg-amber-secondary'} flex flex-row items-center justify-center h-full `}>הזמנה
             </NavLink>
+            <NavLink to={"/orders-history"} className={({ isActive }) => `text-xs p-3 ${isActive ? 'bg-amber-400' : 'bg-amber-secondary'} flex flex-row items-center justify-center h-full `}>הסטורית הזמנות
+            </NavLink>
 
 
         </div>
