@@ -21,9 +21,16 @@ export const IceCreamBuilderPage = () => {
             <div className='flex flex-col items-center justify-center   h-64'>
                 <IceCream serveType={serveType} taste={taste} topping={toppings} />
             </div>
-            <IceCreamBuilderControls serveType={serveType}
+            <div className="bg-background-main  flex-1 flex flex-col items-center    ">
+                <IceCreamBuilderControls serveType={serveType}
+                    taste={taste} toppings={toppings} toggleServeType={toggleServeType} setTaste={setTaste} setToppings={setToppings} />
+                <div id='taste-container' className='flex flex-row gap-4 '>
+                    <button className={`p-2 w-22 ${'bg-background-accent'} text-black hover:ring-1 ring-purple-700 rounded`} onClick={() => setTaste('vanilla')}>
+                        הוספה להזמנה
+                    </button>
+                </div>
+            </div>
 
-                taste={taste} toppings={toppings} toggleServeType={toggleServeType} setTaste={setTaste} setToppings={setToppings} />
 
         </div>
     )

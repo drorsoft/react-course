@@ -13,7 +13,7 @@ export const IceCreamBuilderControls = ({ serveType, taste, toppings, toggleServ
     }, [])
 
 
-    return <div className="bg-background-main gap-4 flex-1 flex flex-col justify-start items-center p-4">
+    return <div className=" gap-4 flex flex-col justify-start items-center p-4">
         <div id='button-container' className='flex flex-col '>
             <button className={`p-2 w-12 bg-background-accent text-black hover:ring-1 ring-purple-700 rounded`} onClick={() => toggleServeType()}>
                 {serveType === 'cone' ? 'גביע' : 'כוס'}
