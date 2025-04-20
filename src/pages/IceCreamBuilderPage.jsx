@@ -1,14 +1,27 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { IceCream } from "../components/IceCreamVisual/IceCreamVisual";
 import { IceCreamTopping } from "../models/IceCreamTopping";
 import { IceCreamBuilderControls } from "../components/IceCreamBuilderControls";
+import { GlobalContext } from "../context/globalContext";
+
+
 
 
 export const IceCreamBuilderPage = () => {
     const [serveType, setServeType] = useState('cone') // cone | cup
     const [taste, setTaste] = useState(null) // vanilla | chocolate | strawberry
     const [toppings, setToppings] = useState(IceCreamTopping.None) // none | cherry | sprinkles
+
+    const { cart, setCart } = useContext(GlobalContext)
+
+
     const addToOrder = () => {
+        const newItem = {
+            serveType: serveType,
+            taste: taste,
+            toppings: toppings
+        }
+        setCart([...cart, newItem])
     }
 
     function toggleServeType() {
@@ -28,7 +41,7 @@ export const IceCreamBuilderPage = () => {
                 <IceCreamBuilderControls serveType={serveType}
                     taste={taste} toppings={toppings} toggleServeType={toggleServeType} setTaste={setTaste} setToppings={setToppings} />
                 <div id='taste-container' className='flex flex-row gap-4 '>
-                    <button className={`p-2  bg-button-submit     text-black hover:ring-1 ring-purple-700 rounded`}  >
+                    <button className={`p-2  bg-button-submit     text-black hover:ring-1 ring-purple-700 rounded`} onClick={addToOrder} >
                         הוספה להזמנה
                     </button>
                     <button className={`p-2 bg-button-accent  text-black hover:ring-1 ring-purple-700 rounded`}  >
