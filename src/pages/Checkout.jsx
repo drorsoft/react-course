@@ -4,8 +4,16 @@ import { AppSelect } from "../UI/AppSelect";
 import { isValidMobilePhone } from "../validators/isValidMobilePhone";
 import { isValidEmail } from "../validators/isValidEmail";
 
+const demoOrder = {
+    "name": "chen",
+    "email": "chen@mail.com",
+    "phone": "0546734399",
+    "address": "Kibbutz Eshbal",
+    "paymentMethod": "credit"
+}
+
 export const Checkout = () => {
-    const [order, setOrder] = useState({
+    const [order, setOrder] = useState(demoOrder || {
         name: '',
         email: '',
         phone: '',
