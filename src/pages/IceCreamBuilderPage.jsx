@@ -8,6 +8,9 @@ export const IceCreamBuilderPage = () => {
     const [serveType, setServeType] = useState('cone') // cone | cup
     const [taste, setTaste] = useState(null) // vanilla | chocolate | strawberry
     const [toppings, setToppings] = useState(IceCreamTopping.None) // none | cherry | sprinkles
+    const addToOrder = () => {
+    }
+
     function toggleServeType() {
         if (serveType === 'cone') {
             setServeType('cup')
@@ -25,8 +28,11 @@ export const IceCreamBuilderPage = () => {
                 <IceCreamBuilderControls serveType={serveType}
                     taste={taste} toppings={toppings} toggleServeType={toggleServeType} setTaste={setTaste} setToppings={setToppings} />
                 <div id='taste-container' className='flex flex-row gap-4 '>
-                    <button className={`p-2 w-22 ${'bg-background-accent'} text-black hover:ring-1 ring-purple-700 rounded`} onClick={() => setTaste('vanilla')}>
+                    <button className={`p-2  bg-button-submit     text-black hover:ring-1 ring-purple-700 rounded`}  >
                         הוספה להזמנה
+                    </button>
+                    <button className={`p-2 bg-button-accent  text-black hover:ring-1 ring-purple-700 rounded`}  >
+                        סיום הזמנה
                     </button>
                 </div>
             </div>
