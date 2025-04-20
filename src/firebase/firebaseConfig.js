@@ -1,9 +1,11 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { privateConfig } from "../private/privateConfig";
+
 
 
 const firebaseConfig = {
-    projectId: "iceceream-legend",
+    projectId: privateConfig.firebaseProjectId,
 };
 
 const app = initializeApp(firebaseConfig);
