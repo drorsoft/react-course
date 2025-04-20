@@ -3,6 +3,9 @@ import { TextInput } from "../UI/TextInput";
 import { AppSelect } from "../UI/AppSelect";
 import { isValidMobilePhone } from "../validators/isValidMobilePhone";
 import { isValidEmail } from "../validators/isValidEmail";
+import axios from "axios";
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "../firebase/firebaseConfig";
 
 const demoOrder = {
     "name": "chen",
@@ -54,10 +57,11 @@ export const Checkout = () => {
 
     }
 
-    const submitHandler = (e) => {
+    const submitHandler = async (e) => {
         e.preventDefault();
         validateForm();
-        console.log('order', order);
+        const docRef = await addDoc(collection(db, "orders"), order);
+        console.log('docRef', docRef);
     }
 
     return (
