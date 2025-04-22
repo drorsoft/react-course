@@ -9,6 +9,7 @@ import { db } from "../firebase/firebaseConfig";
 import { GlobalContext } from "../context/globalContext";
 import { iceCreamAbstract } from "../utils/iceCreamAbstract";
 import { CheckoutStateType } from "../models/checkoutStateType";
+import { useNavigate } from "react-router";
 
 const demoOrder = {
     "name": "chen",
@@ -19,7 +20,9 @@ const demoOrder = {
 }
 
 export const Checkout = () => {
-    const [checkoutState, setCheckoutState] = useState({ status: CheckoutStateType.Sending, message: '' }); // NotSent | Sending | OrderReceived | OrderFailed
+    const [checkoutState, setCheckoutState] = useState({ status: CheckoutStateType.OrderFailed, message: '' }); // NotSent | Sending | OrderReceived | OrderFailed
+
+    const navigate = useNavigate();
 
     const { cart, setCart } = useContext(GlobalContext);
     const [order, setOrder] = useState(demoOrder || {
@@ -62,12 +65,17 @@ export const Checkout = () => {
         setValidationErrors(errors);
 
     }
-
+    const finishOrderProcess = () => {
+        setCheckoutState({ status: CheckoutStateType.NotSent, message: '' });
+        setCart([]);
+        setOrder(demoOrder);
+        navigate('/')
+    }
     const submitHandler = async (e) => {
         e.preventDefault();
         validateForm();
         const docRef = await addDoc(collection(db, "orders"), order);
-        console.log('docRef', docRef);
+
     }
 
     return (
@@ -159,11 +167,29 @@ export const Checkout = () => {
 
 
                     </form>}
-                    {checkoutState.status === CheckoutStateType.Sending && <div className="flex flex-row items-center justify-center gap-2">
-                        <div className="   ">
+                    {checkoutState.status === CheckoutStateType.Sending && <div className="flex flex-row items-center justify-center gap-3 mt-2 ">
+                        <div  >
                             <div className="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
                         </div>
                         <span className="text-blue-500">שולח הזמנה...</span>
+                    </div>}
+                    {checkoutState.status === CheckoutStateType.OrderReceived && <div className="flex flex-col gap-3   ">
+                        ההזמנה התקבלה בהצלחה!
+
+                        <span className=" flex flex-col gap-1">
+                            <span>   בדקות הקרובות תשלח אליך לטלפון   </span>
+                            <span className="text-blue-500">   {order.phone}     </span>
+                            <span>   הודעה עם פרטי ההזמנה ואופן התשלום   </span>
+
+                        </span>
+                        <button onClick={() => finishOrderProcess()} className="bg-slate-500 text-white p-2 cursor-pointer rounded-md hover:bg-slate-600 transition-all duration-200"> חזרה לעמוד הבית</button>
+                    </div>}
+                    {checkoutState.status === CheckoutStateType.OrderFailed && <div className="flex flex-col gap-3   ">
+                        <span className="text-red-500">
+                            <span>שגיאה בשליחת ההזמנה </span>
+                            {checkoutState.message}
+                        </span>
+                        <button onClick={() => setCheckoutState({ status: CheckoutStateType.NotSent, message: '' })} className="bg-slate-500 text-white p-2 cursor-pointer rounded-md hover:bg-slate-600 transition-all duration-200"> חזרה להזמנה</button>
                     </div>}
 
                 </div>
