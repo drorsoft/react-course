@@ -14,7 +14,7 @@ export function AppHeader() {
             <NavLink to={"/"} className={({ isActive }) => `text-xs p-3 ${isActive ? 'bg-button-accent' : ' '} flex flex-row items-center justify-center h-full `}>בניית גלידה
             </NavLink>
             <NavLink to={"/checkout"} className={({ isActive }) => `text-xs p-3 ${isActive ? 'bg-button-accent' : ' '} flex flex-row items-center justify-center h-full `}>הזמנה
-                {cart.length > 0 ? <span className="bg-button-accent text-xs rounded-full px-2">{cart.length}</span> : null}
+                {cart.length > 0 ? ` (${cart.length})` : null}
             </NavLink>
             <NavLink to={"/orders-history"} className={({ isActive }) => `text-xs p-3 ${isActive ? 'bg-button-accent' : ' '} flex flex-row items-center justify-center h-full `}>הסטורית הזמנות
             </NavLink>

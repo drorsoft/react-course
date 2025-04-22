@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { TextInput } from "../UI/TextInput";
 import { AppSelect } from "../UI/AppSelect";
 import { isValidMobilePhone } from "../validators/isValidMobilePhone";
@@ -6,6 +6,8 @@ import { isValidEmail } from "../validators/isValidEmail";
 import axios from "axios";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../firebase/firebaseConfig";
+import { GlobalContext } from "../context/globalContext";
+import { iceCreamAbstract } from "../utils/iceCreamAbstract";
 
 const demoOrder = {
     "name": "chen",
@@ -16,6 +18,8 @@ const demoOrder = {
 }
 
 export const Checkout = () => {
+
+    const { cart, setCart } = useContext(GlobalContext);
     const [order, setOrder] = useState(demoOrder || {
         name: '',
         email: '',
@@ -71,6 +75,10 @@ export const Checkout = () => {
                     <h1 className="text-xl font-bold">
                         הזמנת גלידה
                     </h1>
+                    <div>
+                        {cart.map((iceCream, index) => <p>{iceCreamAbstract(iceCream)}</p>)}
+
+                    </div>
                     <form onSubmit={submitHandler} className="flex flex-col gap-4 w-full" noValidate>
                         <div  >
 

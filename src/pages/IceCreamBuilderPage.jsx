@@ -22,6 +22,9 @@ export const IceCreamBuilderPage = () => {
             toppings: toppings
         }
         setCart([...cart, newItem])
+
+        setTaste(null)
+        setToppings(IceCreamTopping.None)
     }
 
     function toggleServeType() {
@@ -41,7 +44,7 @@ export const IceCreamBuilderPage = () => {
                 <IceCreamBuilderControls serveType={serveType}
                     taste={taste} toppings={toppings} toggleServeType={toggleServeType} setTaste={setTaste} setToppings={setToppings} />
                 <div id='taste-container' className='flex flex-row gap-4 '>
-                    <button className={`p-2  bg-button-submit     text-black hover:ring-1 ring-purple-700 rounded`} onClick={addToOrder} >
+                    <button disabled={!taste} className={`p-2  bg-button-submit  disabled:opacity-50   text-black hover:ring-1 ring-purple-700 rounded`} onClick={addToOrder} >
                         הוספה להזמנה
                     </button>
                     <button className={`p-2 bg-button-accent  text-black hover:ring-1 ring-purple-700 rounded`}  >
