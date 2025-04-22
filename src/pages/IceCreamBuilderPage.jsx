@@ -3,6 +3,7 @@ import { IceCream } from "../components/IceCreamVisual/IceCreamVisual";
 import { IceCreamTopping } from "../models/IceCreamTopping";
 import { IceCreamBuilderControls } from "../components/IceCreamBuilderControls";
 import { GlobalContext } from "../context/globalContext";
+import { useNavigate } from "react-router";
 
 
 
@@ -12,8 +13,12 @@ export const IceCreamBuilderPage = () => {
     const [taste, setTaste] = useState(null) // vanilla | chocolate | strawberry
     const [toppings, setToppings] = useState(IceCreamTopping.None) // none | cherry | sprinkles
 
-    const { cart, setCart } = useContext(GlobalContext)
+    const navigate = useNavigate()
 
+    const { cart, setCart } = useContext(GlobalContext)
+    const gotoCheckout = () => {
+        navigate('/checkout')
+    }
 
     const addToOrder = () => {
         const newItem = {
@@ -26,6 +31,7 @@ export const IceCreamBuilderPage = () => {
         setTaste(null)
         setToppings(IceCreamTopping.None)
     }
+
 
     function toggleServeType() {
         if (serveType === 'cone') {
@@ -47,7 +53,7 @@ export const IceCreamBuilderPage = () => {
                     <button disabled={!taste} className={`p-2  bg-button-submit  disabled:opacity-50   text-black hover:ring-1 ring-purple-700 rounded`} onClick={addToOrder} >
                         הוספה להזמנה
                     </button>
-                    <button className={`p-2 bg-button-accent  text-black hover:ring-1 ring-purple-700 rounded`}  >
+                    <button onClick={gotoCheckout} disabled={cart.length === 0} className={`p-2 bg-button-accent disabled:opacity-50 text-black hover:ring-1 ring-purple-700 rounded`}  >
                         סיום הזמנה
                     </button>
                 </div>

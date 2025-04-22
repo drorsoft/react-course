@@ -75,9 +75,14 @@ export const Checkout = () => {
                     <h1 className="text-xl font-bold">
                         הזמנת גלידה
                     </h1>
-                    <div>
-                        {cart.map((iceCream, index) => <p>{iceCreamAbstract(iceCream)}</p>)}
+                    <div className="my-2">
+                        <h2> פריטים בהזמנה</h2>
+                        <ul>
 
+                            {cart.map((iceCream, index) => <li key={iceCream + index}>
+                                <span> 🍦 </span>
+                                {iceCreamAbstract(iceCream)}</li>)}
+                        </ul>
                     </div>
                     <form onSubmit={submitHandler} className="flex flex-col gap-4 w-full" noValidate>
                         <div  >
