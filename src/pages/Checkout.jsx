@@ -3,7 +3,7 @@ import { TextInput } from "../UI/TextInput";
 import { AppSelect } from "../UI/AppSelect";
 import { isValidMobilePhone } from "../validators/isValidMobilePhone";
 import { isValidEmail } from "../validators/isValidEmail";
-import axios from "axios";
+
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../firebase/firebaseConfig";
 import { GlobalContext } from "../context/globalContext";
@@ -74,8 +74,18 @@ export const Checkout = () => {
     const submitHandler = async (e) => {
         e.preventDefault();
         validateForm();
-        const docRef = await addDoc(collection(db, "orders"), order);
-
+        if (Object.values(validationErrors).some(error => error !== '')) {
+            return;
+        }
+        setCheckoutState({ status: CheckoutStateType.Sending, message: '' });
+        try {
+            const docRef = await addDoc(collection(db, "orders"), order);
+            const orderId = docRef.id;
+            setCheckoutState({ status: CheckoutStateType.OrderReceived, message: orderId });
+        } catch (error) {
+            console.error("Error adding document: ", error);
+            setCheckoutState({ status: CheckoutStateType.OrderFailed, message: error.message });
+        }
     }
 
     return (
@@ -182,6 +192,8 @@ export const Checkout = () => {
                             <span>   הודעה עם פרטי ההזמנה ואופן התשלום   </span>
 
                         </span>
+                        <span className=""
+                        >מזהה ההזמנה שלך הוא: {checkoutState.message}</span>
                         <button onClick={() => finishOrderProcess()} className="bg-slate-500 text-white p-2 cursor-pointer rounded-md hover:bg-slate-600 transition-all duration-200"> חזרה לעמוד הבית</button>
                     </div>}
                     {checkoutState.status === CheckoutStateType.OrderFailed && <div className="flex flex-col gap-3   ">
