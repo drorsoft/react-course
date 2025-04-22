@@ -8,6 +8,7 @@ import { addDoc, collection } from "firebase/firestore";
 import { db } from "../firebase/firebaseConfig";
 import { GlobalContext } from "../context/globalContext";
 import { iceCreamAbstract } from "../utils/iceCreamAbstract";
+import { CheckoutStateType } from "../models/checkoutStateType";
 
 const demoOrder = {
     "name": "chen",
@@ -18,6 +19,7 @@ const demoOrder = {
 }
 
 export const Checkout = () => {
+    const [checkoutState, setCheckoutState] = useState({ status: CheckoutStateType.Sending, message: '' }); // NotSent | Sending | OrderReceived | OrderFailed
 
     const { cart, setCart } = useContext(GlobalContext);
     const [order, setOrder] = useState(demoOrder || {
@@ -75,16 +77,16 @@ export const Checkout = () => {
                     <h1 className="text-xl font-bold">
                         הזמנת גלידה
                     </h1>
-                    <div className="my-2">
-                        <h2> פריטים בהזמנה</h2>
-                        <ul>
+                    {checkoutState.status === CheckoutStateType.NotSent && <form onSubmit={submitHandler} className="flex flex-col gap-4 w-full" noValidate>
+                        <div className="my-2">
+                            <h2> פריטים בהזמנה</h2>
+                            <ul>
 
-                            {cart.map((iceCream, index) => <li key={iceCream + index}>
-                                <span> 🍦 </span>
-                                {iceCreamAbstract(iceCream)}</li>)}
-                        </ul>
-                    </div>
-                    <form onSubmit={submitHandler} className="flex flex-col gap-4 w-full" noValidate>
+                                {cart.map((iceCream, index) => <li key={iceCream + index}>
+                                    <span> 🍦 </span>
+                                    {iceCreamAbstract(iceCream)}</li>)}
+                            </ul>
+                        </div>
                         <div  >
 
                             <TextInput
@@ -156,9 +158,14 @@ export const Checkout = () => {
                         <button type="submit" className="bg-slate-500 text-white p-2 rounded-md hover:bg-slate-600 transition-all duration-200"> שליחה</button>
 
 
-                    </form>
-                    <p></p>
-                    <p></p>
+                    </form>}
+                    {checkoutState.status === CheckoutStateType.Sending && <div className="flex flex-row items-center justify-center gap-2">
+                        <div className="   ">
+                            <div className="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+                        </div>
+                        <span className="text-blue-500">שולח הזמנה...</span>
+                    </div>}
+
                 </div>
             </div>
         </section>
