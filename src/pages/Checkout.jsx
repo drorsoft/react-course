@@ -20,12 +20,12 @@ const demoOrder = {
 }
 
 export const Checkout = () => {
-    const [checkoutState, setCheckoutState] = useState({ status: CheckoutStateType.OrderFailed, message: '' }); // NotSent | Sending | OrderReceived | OrderFailed
+    const [checkoutState, setCheckoutState] = useState({ status: CheckoutStateType.NotSent, message: '' }); // NotSent | Sending | OrderReceived | OrderFailed
 
     const navigate = useNavigate();
 
     const { cart, setCart } = useContext(GlobalContext);
-    const [order, setOrder] = useState(demoOrder || {
+    const [order, setOrder] = useState({
         name: '',
         email: '',
         phone: '',
@@ -40,6 +40,7 @@ export const Checkout = () => {
         paymentMethod: ''
     });
     const validateForm = () => {
+
         const errors = {
             name: '',
             email: '',
@@ -62,7 +63,9 @@ export const Checkout = () => {
         }
 
 
+
         setValidationErrors(errors);
+        return errors
 
     }
     const finishOrderProcess = () => {
@@ -73,8 +76,8 @@ export const Checkout = () => {
     }
     const submitHandler = async (e) => {
         e.preventDefault();
-        validateForm();
-        if (Object.values(validationErrors).some(error => error !== '')) {
+        const errors = validateForm();
+        if (Object.values(errors).some(error => error !== '')) {
             return;
         }
         setCheckoutState({ status: CheckoutStateType.Sending, message: '' });
