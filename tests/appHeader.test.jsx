@@ -3,6 +3,9 @@ import { describe, it, expect, vi } from 'vitest'
 import { GlobalContext } from '../src/context/globalContext'
 import { BrowserRouter } from 'react-router'
 import { AppHeader } from '../src/components/AppHeader'
+import { IceCream } from '../src/components/IceCreamVisual/IceCreamVisual'
+import { IceCreamTaste } from '../src/models/IceCreamTaste'
+import { IceCreamTopping } from '../src/models/IceCreamTopping'
 
 const baseMockContext = {
     isAuth: false, setIsAuth: (value) => { }, cart: [], setCart: (value) => { }
@@ -30,10 +33,14 @@ describe('AppHeader Component', () => {
     })
 
     it('displays the cart count when items are in the cart', () => {
-        // Mock the GlobalContext with items in the cart
+        const mockItem = {
+            serveType: 'cup',
+            taste: IceCreamTaste.Chocolate,
+            toppings: IceCreamTopping.None
+        }
         const mockContext = {
             ...baseMockContext,
-            cart: [1, 2, 3],
+            cart: [mockItem, mockItem, mockItem],
         }
 
         render(
@@ -44,7 +51,6 @@ describe('AppHeader Component', () => {
             </GlobalContext.Provider>
         )
 
-        // Check if the cart count is displayed
         expect(screen.getByText('הזמנה (3)')).toBeTruthy()
     })
 })
