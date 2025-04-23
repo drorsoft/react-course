@@ -1,5 +1,4 @@
-<style>*{direction:rtl;}</style>
-# קורס ריאקט חלק י' - טסטים
+<style>*{direction:rtl;}</style># קורס ריאקט חלק י' - טסטים
 
 ## פתיחה
 
@@ -69,7 +68,11 @@ test('adds 1 + 2 to equal 3', () => {
 בנוסף, נרצה להוסיף פקודה ל scripts:
 
 ```json
-"test": "vitest --run"
+  {
+  "test": "vitest --run"
+}
+```
+ 
 ```
 
 עכשיו נריץ:
@@ -260,7 +263,7 @@ describe('AppHeader Component', () => {
     expect(screen.getByText('בניית גלידה')).toBeTruthy()
     expect(screen.getByText('הזמנה')).toBeTruthy()
     expect(screen.getByText('הסטורית הזמנות')).toBeTruthy()
-  })
+  })})
 ```
 
 ## טסט לבדיקה שמספר הפריטים מופיע
