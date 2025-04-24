@@ -14,7 +14,7 @@ import { Post } from "../examples/Post";
 export const AppRoutes = () => {
     const { isAuth } = useContext(GlobalContext);
     return (
-        <Routes>
+        <Routes >
             <Route path="/" element={<IceCreamBuilderPage />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/all-posts" element={<AllPosts />} />
