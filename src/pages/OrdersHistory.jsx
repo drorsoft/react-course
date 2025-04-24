@@ -1,13 +1,14 @@
-import { collection, getDocs } from "firebase/firestore";
+
 import { useEffect, useState } from "react";
 import { db } from "../firebase/firebaseConfig";
 import { NavLink } from "react-router";
+import { firebaseProvider } from "../firebase/firebaseProvider";
 
 export const OrdersHistory = () => {
     const [allOrdersHistory, setAllOrdersHistory] = useState([])
     useEffect(() => {
         const fetchData = async () => {
-            const querySnapshot = await getDocs(collection(db, "orders"));
+            const querySnapshot = await firebaseProvider().getDocs(firebaseProvider().collection(db, "orders"));
             const allRecords = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
             setAllOrdersHistory(allRecords)
             console.log
