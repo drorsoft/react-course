@@ -35,6 +35,11 @@ jobs:
           cache-dependency-path: './'
 
       - run: npm install
+      - name: Create private config file
+        run: |
+          mkdir -p src/private
+          echo "export const privateConfig = {firebaseProjectId: \"mock-id\"}" > src/private/privateConfig.js
+     
       - name: Build static site
         run: npm run build 
       - name: Setup Pages
