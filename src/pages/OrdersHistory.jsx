@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { db } from "../firebase/firebaseConfig";
 import { NavLink } from "react-router";
@@ -18,6 +17,20 @@ export const OrdersHistory = () => {
         fetchData();
     }, [])
 
+    // Helper function to translate payment method to Hebrew
+    const getPaymentMethodHebrew = (method) => {
+        switch (method) {
+            case 'credit':
+                return 'אשראי';
+            case 'cash':
+                return 'מזומן';
+            case 'bit':
+                return 'ביט';
+            default:
+                return method;
+        }
+    };
+
     return (<div className=" w-screen  h-screen overflow-hidden flex flex-col items-start justify-start  ">
         <div className="p-5 overflow-scroll w-screen  h-screen">
             הסטורית הזמנות
@@ -33,14 +46,14 @@ export const OrdersHistory = () => {
                                 <span> </span>
                                 <span>   {order.address}</span>
                                 <span> </span>
-                                <span>{order.paymentMethod}</span>
-                                <span> </span>
                             </span>
-                            <span className="text-xs">  </span>
+                            <span className="font-bold text-xs">כמות פריטים בהזמנה: {order.cart ? order.cart.length : 0}</span>
+                            <span className="font-bold text-xs">שיטת תשלום: {getPaymentMethodHebrew(order.paymentMethod)}</span>
 
 
                         </div></div>)
                     }
+
 
 
                 </div>) : (<span>Loading...</span>)}
