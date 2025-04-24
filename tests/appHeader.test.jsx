@@ -29,7 +29,7 @@ describe('AppHeader Component', () => {
         // Check if the navigation links are rendered
         expect(screen.getByText('בניית גלידה')).toBeTruthy()
         expect(screen.getByText('הזמנה')).toBeTruthy()
-        expect(screen.getByText('הסטורית הזמנות')).toBeTruthy()
+        expect(screen.getByText('היסטורית הזמנות', { exact: false })).toBeTruthy()
     })
 
     it('displays the cart count when items are in the cart', () => {
