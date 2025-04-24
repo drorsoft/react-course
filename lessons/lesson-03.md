@@ -1,4 +1,4 @@
-<style>*{direction:rtl;}</style>
+ 
 # קורס ריאקט שיעור ג'
 
 
