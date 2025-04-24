@@ -3,8 +3,7 @@ import { addDoc, collection, getDocs } from "firebase/firestore";
 
 const useLocalStorage = import.meta.env.MODE === 'production' ? true : false;
 
-// build a fake firebase provider for local storage
-// this is used for local development only, in production we use the real firebase provider
+
 const randomFirebaseId = () => {
     return Math.random().toString(36).substring(2, 15)
 }
@@ -20,7 +19,7 @@ const localstorageGetDocs = async (collection) => {
 }
 
 export const firebaseProvider = () => {
-    if (useLocalStorage || true) {
+    if (useLocalStorage) {
         return { addDoc: localstorageAddDoc, collection: () => { }, getDocs: localstorageGetDocs }
     }
     return { addDoc, collection, getDocs }
