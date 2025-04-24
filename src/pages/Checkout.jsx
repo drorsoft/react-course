@@ -82,7 +82,8 @@ export const Checkout = () => {
         }
         setCheckoutState({ status: CheckoutStateType.Sending, message: '' });
         try {
-            const docRef = await firebaseProvider().addDoc(firebaseProvider().collection(db, "orders"), order);
+            const orderWithItems = { ...order, items: cart };
+            const docRef = await firebaseProvider().addDoc(firebaseProvider().collection(db, "orders"), orderWithItems);
             const orderId = docRef.id;
             setCheckoutState({ status: CheckoutStateType.OrderReceived, message: orderId });
         } catch (error) {

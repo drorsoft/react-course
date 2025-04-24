@@ -47,8 +47,11 @@ export const OrdersHistory = () => {
                                 <span>   {order.address}</span>
                                 <span> </span>
                             </span>
-                            <span className="font-bold text-xs">כמות פריטים בהזמנה: {order.cart ? order.cart.length : 0}</span>
-                            <span className="font-bold text-xs">שיטת תשלום: {getPaymentMethodHebrew(order.paymentMethod)}</span>
+                            <span className=" text-xs">כמות פריטים בהזמנה: {order.items ? order.items.length : 0}</span>
+                            <span className="font-bold text-xs " >שיטת תשלום:
+
+                                <span className="font-bold  ">   {getPaymentMethodHebrew(order.paymentMethod)}</span>
+                            </span>
 
 
                         </div></div>)
