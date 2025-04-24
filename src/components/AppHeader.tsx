@@ -7,8 +7,8 @@ export function AppHeader() {
     const { cart } = useContext(GlobalContext)
 
     return (
-        <nav className="relative flex flex-col items-stretch   justify-center bg-background-accent sm:flex-row sm:items-center sm:p-0">
-            <h1 className="m-0 rounded p-2 font-bold text-lg text-center sm:text-base sm:text-right sm:p-2">
+        <nav className="relative flex flex-col items-stretch   justify-center bg-background-accent sm:flex-row sm:items-center sm:p-0  shadow ">
+            <h1 className="m-0 rounded p-2 font-bold text-lg text-center sm:text-base sm:text-right sm:m-2">
                 גלידה מהאגדות
             </h1>
             <div
