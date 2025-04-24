@@ -93,8 +93,8 @@ export const Checkout = () => {
 
     return (
         <section className=" w-full h-full flex flex-col items-center justify-start overflow-hidden">
-            <div className=" p-10 flex flex-col items-center justify-start gap-5 w-full h-full overflow-scroll">
-                <div id={'checkout-container'} className="w-96   border-2 border-slate-400 shadow  rounded-lg p-10 flex flex-col items-start justify-start gap-3">
+            <div className=" md:p-10 flex flex-col items-center justify-start gap-5 w-full h-full overflow-scroll">
+                <div id={'checkout-container'} className="w-full sm:w-96 border-0 sm:border-2 border-slate-400 md:shadow rounded-lg p-4 md:p-10 flex flex-col items-start justify-start gap-3">
                     <h1 className="text-xl font-bold">
                         הזמנת גלידה
                     </h1>
