@@ -38,7 +38,8 @@ export function AppHeader() {
                         `text-base p-2 w-full text-center ${isActive ? 'bg-button-accent' : ''} flex flex-row items-center justify-center sm:text-xs sm:w-auto sm:p-3 sm:h-full`
                     }
                 >
-                    הסטורית הזמנות
+                    <span className="sm:hidden">היסטוריה</span>
+                    <span className="hidden sm:inline">היסטורית הזמנות</span>
                 </NavLink>
             </div>
         </nav>
