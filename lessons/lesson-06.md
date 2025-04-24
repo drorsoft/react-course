@@ -1,5 +1,4 @@
-<style>*{direction:rtl;}</style>
-
+ 
 # קורס ריאקט חלק ו' - טפסים
 
 

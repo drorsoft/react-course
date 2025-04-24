@@ -4,12 +4,12 @@ import { AppSelect } from "../UI/AppSelect";
 import { isValidMobilePhone } from "../validators/isValidMobilePhone";
 import { isValidEmail } from "../validators/isValidEmail";
 
-import { addDoc, collection } from "firebase/firestore";
 import { db } from "../firebase/firebaseConfig";
 import { GlobalContext } from "../context/globalContext";
 import { iceCreamAbstract } from "../utils/iceCreamAbstract";
 import { CheckoutStateType } from "../models/checkoutStateType";
 import { useNavigate } from "react-router";
+import { firebaseProvider } from "../firebase/firebaseProvider";
 
 const demoOrder = {
     "name": "chen",
@@ -82,7 +82,8 @@ export const Checkout = () => {
         }
         setCheckoutState({ status: CheckoutStateType.Sending, message: '' });
         try {
-            const docRef = await addDoc(collection(db, "orders"), order);
+            const orderWithItems = { ...order, items: cart };
+            const docRef = await firebaseProvider().addDoc(firebaseProvider().collection(db, "orders"), orderWithItems);
             const orderId = docRef.id;
             setCheckoutState({ status: CheckoutStateType.OrderReceived, message: orderId });
         } catch (error) {
@@ -93,8 +94,8 @@ export const Checkout = () => {
 
     return (
         <section className=" w-full h-full flex flex-col items-center justify-start overflow-hidden">
-            <div className=" p-10 flex flex-col items-center justify-start gap-5 w-full h-full overflow-scroll">
-                <div id={'checkout-container'} className="w-96   border-2 border-slate-400 shadow  rounded-lg p-10 flex flex-col items-start justify-start gap-3">
+            <div className=" md:p-10 flex flex-col items-center justify-start gap-5 w-full h-full overflow-scroll">
+                <div id={'checkout-container'} className="w-full sm:w-96 border-0 sm:border-2 border-slate-400 md:shadow rounded-lg p-4 md:p-10 flex flex-col items-start justify-start gap-3">
                     <h1 className="text-xl font-bold">
                         הזמנת גלידה
                     </h1>
