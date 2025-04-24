@@ -368,7 +368,9 @@ buttonRef.current.focus()
 
 שימו לב, בעצם הREF, בפעם הראשונה שהפונקציה רצה, לא מקושרת לאלמנט הכפתור, כי הוא עדיין לא קיים. מה נעשה?
 
-נשים את זה בתוך USE_EFFECT:
+ 
+
+נשים את זה בתוך `useEffect`:
 
 ```javascript
 useEffect(() => {
@@ -376,4 +378,74 @@ useEffect(() => {
 }, [])
 ```
 
-הערה: ה
+### הערה
+
+הצפייה כאן היא לא שתזכרו את הכל בעל-פה אלא יותר שתכירו את הלך הרוח של ריאקט, ואת החשיבה בזמן עדכון סטייט.
+
+## Context API
+
+כמו שראינו, אם קומפוננטה שמכילה קומפוננטה אחרת רוצה לשלוט בה / בהתנהגות שלה, אז היא מעבירה לה פרופס.
+
+עכשיו לפעמים יש לנו סטייט שנמצא גבוה בעץ ואז אנחנו צריכים לדעת בקומפוננטה שנמצאת במקום נמוך בעץ את המידע. איך נעשה את זה?
+
+אז בואו נגיד שאנחנו רוצים לדעת אם היוזר מחובר או לא, כדי להוסיף כפתור לתשלום או לא.
+
+### בעיית Prop Drilling
+
+בואו נעשה דבר כזה, אפילו בלי להתעסק עם זה (נעשה את זה בעתיד) נוסיף סטייט שנקרא לו `isAuth`, ונעביר אותו מה-App למטה:
+
+```javascript
+const [isUserAuth, setIsUserAuth] = useState(false)
+return <IceCreamBuilderPage isUserAuth={isUserAuth} />
+```
+
+עכשיו שימו לב מה קרה, העברנו את המשתנה הזה כמה פעמים למטה. גם זה הרבה עבודה, וגם אם הוא משתנה אז צריך לשנות אותו בהרבה מקומות.
+
+התהליך הזה של הורדת משתנה למטה נקרא "פרופ דרילינג" (Prop Drilling), כי בעצם אנחנו כאילו "קודחים" למטה ולמטה ולמטה.
+
+### פתרון: Context API
+
+אז בגלל הבעיה הזו, לריאקט יש מנגנון שנקרא קונטקסט.
+
+הוא בעצם נועד למנוע את העניין של הפרופ דרילינג.
+
+בואו נראה איך משתמשים בו:
+
+#### יצירת Context
+
+אפתח תקייה חדשה שנקראת `context`:
+
+```javascript
+import { createContext } from "react";
+
+export const GlobalContext = createContext({ isAuth: false })
+```
+
+דבר ראשון, לשם הבהירות יצרנו את הקונטקסט עצמו.
+אבל זה לא מספיק. בעצם צריך לראות קונטקסט בתור מעין סטייט או useState, אבל סטייט שיכול לחלחל בכל העץ.
+
+#### יצירת Context Provider
+
+עכשיו ניצור קומפוננטה שתספק אותו לכל מי שיהיה מתחתיה בעץ:
+
+```javascript
+import { createContext, useState } from "react";
+import { GlobalContext } from "./globalContext";
+
+export const GlobalContextProvider = ({ children }) => {
+  const [isAuth, setIsAuth] = useState(true)
+  return <GlobalContext.Provider value={{ isAuth, setIsAuth }}>
+    {children}
+  </GlobalContext.Provider>
+}
+```
+
+#### שימוש בקונטקסט
+
+עכשיו כדי לצרוך את הקונטקסט נשתמש בהוק בתוך הקומפוננטה של הקונטרולס:
+
+```javascript
+const { isAuth } = useContext(GlobalContext);
+```
+
+[למידע נוסף על Context API ברשמי של React](https://reactjs.org/docs/context.html)
