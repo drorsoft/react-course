@@ -1,4 +1,3 @@
-<style>*{direction:rtl;}</style>
  
 #קורס ריאקט חלק ז' - יציאה לרשת
 

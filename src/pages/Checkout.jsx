@@ -4,12 +4,12 @@ import { AppSelect } from "../UI/AppSelect";
 import { isValidMobilePhone } from "../validators/isValidMobilePhone";
 import { isValidEmail } from "../validators/isValidEmail";
 
-import { addDoc, collection } from "firebase/firestore";
 import { db } from "../firebase/firebaseConfig";
 import { GlobalContext } from "../context/globalContext";
 import { iceCreamAbstract } from "../utils/iceCreamAbstract";
 import { CheckoutStateType } from "../models/checkoutStateType";
 import { useNavigate } from "react-router";
+import { firebaseProvider } from "../firebase/firebaseProvider";
 
 const demoOrder = {
     "name": "chen",
@@ -82,7 +82,7 @@ export const Checkout = () => {
         }
         setCheckoutState({ status: CheckoutStateType.Sending, message: '' });
         try {
-            const docRef = await addDoc(collection(db, "orders"), order);
+            const docRef = await firebaseProvider().addDoc(firebaseProvider().collection(db, "orders"), order);
             const orderId = docRef.id;
             setCheckoutState({ status: CheckoutStateType.OrderReceived, message: orderId });
         } catch (error) {
