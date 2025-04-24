@@ -13,7 +13,7 @@ export function AppHeader() {
             </h1>
             <div
                 id="nav-buttons-container"
-                className="text-sm static flex flex-col w-full gap-1 items-stretch justify-start sm:absolute sm:right-0 sm:h-full sm:flex-row sm:w-auto sm:gap-0 sm:items-center sm:justify-center"
+                className="text-sm static flex flex-row w-full gap-1 items-stretch justify-start sm:absolute sm:right-0 sm:h-full sm:flex-row sm:w-auto sm:gap-0 sm:items-center sm:justify-center p-0"
             >
                 <NavLink
                     to={"/"}
