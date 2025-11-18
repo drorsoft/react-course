@@ -6,17 +6,13 @@ import { AppHeader } from './AppHeader'
  
  
 export function App() {
-  const [count, setCount] = useState(0) 
-  let cupOrCone = "cone"
-  const myName = function ()  { 
-    return "chen"
-  } 
-  const isItACat = false
- 
+
+  const [cupOrCone, setCupOrCone] = useState("cone")
+
+
   return (
     <> 
     <AppHeader></AppHeader>
-  
       <div>
         <a   href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -25,28 +21,25 @@ export function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-
-   
-     
-      <button onClick={() =>  {cupOrCone = "cup"}}>
-          serve in cup
+      <button onClick={() =>  setCupOrCone("cup")}>
+         ספל
         </button>
-      <button onClick={() =>  {cupOrCone = "cone"}}>
-          serve in cone
+      <button onClick={() =>  setCupOrCone("cone")}>
+          גביע
       </button>
       <p>
-        The ice creame will be in a {cupOrCone}
+        הגשה ב
+        {cupOrCone === "cone" ? "גביע": "ספל" }
       </p>
 
 
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+      
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
       </div>
+    
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
