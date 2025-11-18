@@ -1,19 +1,20 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css' 
 import { AppHeader } from './AppHeader'
  
  
-export  function App() {
+export function App() {
   const [count, setCount] = useState(0) 
+  let cupOrCone = "cone"
   const myName = function ()  { 
     return "chen"
   } 
   const isItACat = false
  
   return (
-    <>
+    <> 
     <AppHeader></AppHeader>
   
       <div>
@@ -25,10 +26,19 @@ export  function App() {
         </a>
       </div>
 
-       {isItACat ? (<AppHeader></AppHeader>) : 'dog'}
+   
      
-    
-      <h1  >Vite + React</h1>
+      <button onClick={() =>  {cupOrCone = "cup"}}>
+          serve in cup
+        </button>
+      <button onClick={() =>  {cupOrCone = "cone"}}>
+          serve in cone
+      </button>
+      <p>
+        The ice creame will be in a {cupOrCone}
+      </p>
+
+
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
