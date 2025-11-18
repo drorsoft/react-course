@@ -27,17 +27,19 @@ export function App() {
         הגשה ב
         {cupOrCone === "cone" ? "גביע": "ספל" }
       </p>
-        <button onClick={() =>  setCupOrCone("שוקולד")}>
+        <button onClick={() =>  setFlavour("שוקולד")}>
         שוקולד
         </button>
-      <button onClick={() =>  setCupOrCone("וניל")}>
+      <button onClick={() =>  setFlavour("וניל")}>
         וניל
       </button>
-          <button onClick={() =>  setCupOrCone("תות")}>
+          <button onClick={() =>  setFlavour("תות")}>
         תות
       </button>
       <p>
+
        גלידה בטעם
+       
         {flavour}
       </p>
 
