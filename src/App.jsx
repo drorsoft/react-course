@@ -8,19 +8,15 @@ import { AppHeader } from './AppHeader'
 export function App() {
 
   const [cupOrCone, setCupOrCone] = useState("cone")
+  
+  const [flavour, setFlavour] = useState("שוקולד")
+
 
 
   return (
     <> 
     <AppHeader></AppHeader>
-      <div>
-        <a   href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
+  
       <button onClick={() =>  setCupOrCone("cup")}>
          ספל
         </button>
@@ -30,6 +26,19 @@ export function App() {
       <p>
         הגשה ב
         {cupOrCone === "cone" ? "גביע": "ספל" }
+      </p>
+        <button onClick={() =>  setCupOrCone("שוקולד")}>
+        שוקולד
+        </button>
+      <button onClick={() =>  setCupOrCone("וניל")}>
+        וניל
+      </button>
+          <button onClick={() =>  setCupOrCone("תות")}>
+        תות
+      </button>
+      <p>
+       גלידה בטעם
+        {flavour}
       </p>
 
 
