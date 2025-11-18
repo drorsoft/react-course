@@ -22,3 +22,14 @@ console.log(firstFriend);
 const isAdult = myAge > 18 ? "yes" : "no";
 
 // function
+
+const myFunct = function (param1, param2) {
+  console.log("");
+  return param1 + param2;
+};
+
+const utillObject = {
+  add: myFunct,
+};
+utillObject.add(1, 2);
+const myArray = [myFunct];
