@@ -3,19 +3,15 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { AppHeader } from './AppHeader'
-
-  
-export default function App() {
+ 
+ 
+export  function App() {
   const [count, setCount] = useState(0) 
   const myName = function ()  { 
     return "chen"
   } 
   const isItACat = false
-
  
-
-  
-
   return (
     <>
     <AppHeader></AppHeader>
@@ -28,7 +24,8 @@ export default function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-{isItACat ? (<AppHeader></AppHeader>) : 'dog'}
+
+       {isItACat ? (<AppHeader></AppHeader>) : 'dog'}
      
     
       <h1  >Vite + React</h1>

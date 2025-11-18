@@ -16,20 +16,17 @@ const { age: myAge, color, firsName } = person;
 const myFriends = ["Dor", "Or"];
 const [firstFriend, secondFriend] = myFriends;
 
-console.log(firstFriend);
-
 // ternary expression
 const isAdult = myAge > 18 ? "yes" : "no";
 
-// function
+// function as first class objects
 
-const myFunct = function (param1, param2) {
-  console.log("");
+const add = function (param1, param2) {
   return param1 + param2;
 };
 
-const utillObject = {
-  add: myFunct,
-};
-utillObject.add(1, 2);
-const myArray = [myFunct];
+function callFuncAftetSecond(fn, value1, value2) {}
+callFuncAftetSecond(add, 2, 4);
+
+const myArrowAdd5 = (par1) => par1 + (5 / 1000) * 9000;
+[1, 2].map((v) => v * 2);
