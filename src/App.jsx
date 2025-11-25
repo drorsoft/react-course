@@ -1,10 +1,8 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css' 
+import { useState } from 'react' 
 import { AppHeader } from './AppHeader'
 import { IceCreamResult } from './components/IceCreamResult'
 import { AppButton } from './components/button/AppButton'
+import { AppLayout } from './layouts/AppLayout'
  
  
 export function App() {
@@ -16,7 +14,8 @@ export function App() {
 
 
   return (
-    <> 
+    <div className={'bg-white h-screen w-screen text-black'}> 
+    <AppLayout/>
     <AppHeader></AppHeader>
     <IceCreamResult anotherProp={"abc123"} cupOrCone={cupOrCone}>
 
@@ -59,7 +58,7 @@ export function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-    </>
+    </div>
   )
 }
 
