@@ -21,7 +21,7 @@ export function App() {
 
     </IceCreamResult>
   
-      <button    onClick={() =>  setCupOrCone("cup")}>
+      <button  className='bg-green-300'   onClick={() =>  setCupOrCone("cup")}>
          ספל
       </button>
       <button onClick={() =>  setCupOrCone("cone")}>
