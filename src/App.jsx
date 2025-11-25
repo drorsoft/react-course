@@ -3,10 +3,11 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css' 
 import { AppHeader } from './AppHeader'
+import { IceCreamResult } from './components/IceCreamResult'
  
  
 export function App() {
-
+ 
   const [cupOrCone, setCupOrCone] = useState("cone")
   
   const [flavour, setFlavour] = useState("שוקולד")
@@ -16,10 +17,13 @@ export function App() {
   return (
     <> 
     <AppHeader></AppHeader>
+    <IceCreamResult anotherProp={"abc123"} cupOrCone={cupOrCone}>
+
+    </IceCreamResult>
   
-      <button onClick={() =>  setCupOrCone("cup")}>
+      <button    onClick={() =>  setCupOrCone("cup")}>
          ספל
-        </button>
+      </button>
       <button onClick={() =>  setCupOrCone("cone")}>
           גביע
       </button>
@@ -39,7 +43,7 @@ export function App() {
       <p>
 
        גלידה בטעם
-       
+
         {flavour}
       </p>
 
