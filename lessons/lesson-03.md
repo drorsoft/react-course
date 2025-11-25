@@ -158,7 +158,7 @@ https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 
 ```jsx
 const Item = ({ children }) => {
-    return <div className="w-20 h-12 border border-blue-400 p-4 bg-amber-200"> Item {children}</div>
+    return <div className="w-20 h-12 border border-blue-400 p-4  "> Item {children}</div>
 }
 
 export const TailwindExamples = () => {

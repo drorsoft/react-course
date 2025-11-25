@@ -5,9 +5,10 @@ export const IceCreamResult=( {
     }
 
 )=> {
+    const class01 = "bg-blue-300"
 
     return <div className= {
-        "bg-green-300 p-2 w-2 h-2 m-1"
+      class01
     }
 
     >הגלידה שלי </div>
