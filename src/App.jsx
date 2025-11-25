@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css' 
 import { AppHeader } from './AppHeader'
 import { IceCreamResult } from './components/IceCreamResult'
+import { AppButton } from './components/button/AppButton'
  
  
 export function App() {
@@ -21,9 +22,9 @@ export function App() {
 
     </IceCreamResult>
   
-      <button  className='bg-green-300'   onClick={() =>  setCupOrCone("cup")}>
+      <AppButton      onClick={() =>  setCupOrCone("cup")}>
          ספל
-      </button>
+      </AppButton>
       <button onClick={() =>  setCupOrCone("cone")}>
           גביע
       </button>
