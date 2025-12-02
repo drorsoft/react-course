@@ -7,6 +7,8 @@ export const IceCreamResult=( {
 )=> {
     const class01 = "bg-blue-300"
 
+    
+
     return <div className= {
       class01
     }

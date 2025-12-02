@@ -3,11 +3,12 @@ import { AppHeader } from './AppHeader'
 import { IceCreamResult } from './components/IceCreamResult'
 import { AppButton } from './components/button/AppButton'
 import { AppLayout } from './layouts/AppLayout'
+import { ServingType } from './models/ServingType'
  
  
 export function App() {
  
-  const [cupOrCone, setCupOrCone] = useState("cone")
+  const [cupOrCone, setCupOrCone] = useState(ServingType.Cone)
   
   const [flavour, setFlavour] = useState("שוקולד")
 
@@ -40,7 +41,7 @@ export function App() {
 
        <p>
         הגשה ב
-        {cupOrCone === "cone" ? "גביע": "ספל" }
+        {cupOrCone === ServingType.Cone ? "גביע": "ספל" }
       </p>
 
       <p>
