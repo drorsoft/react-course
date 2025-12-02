@@ -5,9 +5,9 @@ export const IceCreamResult=( {
     }
 
 )=> {
-    const class01 = "bg-blue-300"
+    const class01 = " "
 
-    
+
 
     return <div className= {
       class01

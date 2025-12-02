@@ -7,13 +7,13 @@ import { ServingType } from './models/ServingType'
  
  
 export function App() {
- 
   const [cupOrCone, setCupOrCone] = useState(ServingType.Cone)
-  
   const [flavour, setFlavour] = useState("שוקולד")
 
+  // 
   return (
-    <div className={'bg-white h-screen w-screen text-black text-center'}>  
+    <div className={'bg-amber-300 h-screen w-screen text-black text-center'}>  
+   
     <AppHeader></AppHeader>
     <IceCreamResult   cupOrCone={cupOrCone}>
 
