@@ -1,56 +1,58 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css' 
+import { useState } from 'react' 
 import { AppHeader } from './AppHeader'
+import { IceCreamResult } from './components/IceCreamResult'
+import { AppButton } from './components/button/AppButton'
+import { AppLayout } from './layouts/AppLayout'
  
  
 export function App() {
-  const [count, setCount] = useState(0) 
-  let cupOrCone = "cone"
-  const myName = function ()  { 
-    return "chen"
-  } 
-  const isItACat = false
  
-  return (
-    <> 
-    <AppHeader></AppHeader>
+  const [cupOrCone, setCupOrCone] = useState("cone")
   
-      <div>
-        <a   href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
+  const [flavour, setFlavour] = useState("שוקולד")
 
-   
-     
-      <button onClick={() =>  {cupOrCone = "cup"}}>
-          serve in cup
+
+
+  return (
+    <div className={'bg-white h-screen w-screen text-black text-center'}>  
+    <AppHeader></AppHeader>
+    <IceCreamResult   cupOrCone={cupOrCone}>
+
+    </IceCreamResult>
+  
+      <AppButton  onClick={() =>  setCupOrCone("cup")}>
+         ספל
+      </AppButton>
+      <AppButton onClick={() =>  setCupOrCone("cone")}>
+          גביע
+      </AppButton>
+      <div className='flex flex-row gap-6 w-full justify-center'>
+       <button onClick={() =>  setFlavour("שוקולד")}>
+        שוקולד
         </button>
-      <button onClick={() =>  {cupOrCone = "cone"}}>
-          serve in cone
+      <button onClick={() =>  setFlavour("וניל")}>
+        וניל
       </button>
-      <p>
-        The ice creame will be in a {cupOrCone}
-      </p>
-
-
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+          <button onClick={() =>  setFlavour("תות")}>
+        תות
+      </button>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+     
+ 
+
+       <p>
+        הגשה ב
+        {cupOrCone === "cone" ? "גביע": "ספל" }
       </p>
-    </>
+
+      <p>
+
+       גלידה בטעם
+
+        {flavour}
+      </p>
+ 
+    </div>
   )
 }
 
