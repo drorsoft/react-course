@@ -16,16 +16,16 @@ export function App() {
   return (
     <div className={'bg-white h-screen w-screen text-black'}>  
     <AppHeader></AppHeader>
-    <IceCreamResult anotherProp={"abc123"} cupOrCone={cupOrCone}>
+    <IceCreamResult   cupOrCone={cupOrCone}>
 
     </IceCreamResult>
   
-      <AppButton      onClick={() =>  setCupOrCone("cup")}>
+      <AppButton  onClick={() =>  setCupOrCone("cup")}>
          ספל
       </AppButton>
-      <button onClick={() =>  setCupOrCone("cone")}>
+      <AppButton onClick={() =>  setCupOrCone("cone")}>
           גביע
-      </button>
+      </AppButton>
       <p>
         הגשה ב
         {cupOrCone === "cone" ? "גביע": "ספל" }
@@ -45,18 +45,7 @@ export function App() {
 
         {flavour}
       </p>
-
-
-      <div className="card">
-      
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-    
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+ 
     </div>
   )
 }

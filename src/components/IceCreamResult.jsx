@@ -1,7 +1,7 @@
 import style from './IceCreamResult.module.css'
 
 export const IceCreamResult=( {
-        cupOrCone, anotherProp
+        cupOrCone 
     }
 
 )=> {
