@@ -14,8 +14,7 @@ export function App() {
 
 
   return (
-    <div className={'bg-white h-screen w-screen text-black'}> 
-    <AppLayout/>
+    <div className={'bg-white h-screen w-screen text-black'}>  
     <AppHeader></AppHeader>
     <IceCreamResult anotherProp={"abc123"} cupOrCone={cupOrCone}>
 
