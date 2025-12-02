@@ -7,7 +7,7 @@ export const AppButton=( {
 )=> {
    
 
-    return <button  className= {`bg-amber-300 p-4 rounded-b-lg  hover:bg-blue-400  ` 
+    return <button  className= {`bg-amber-300 p-2  rounded  hover:bg-blue-400  ` 
     }  {...props}
 
     >
