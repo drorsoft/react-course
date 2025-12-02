@@ -11,8 +11,6 @@ export function App() {
   
   const [flavour, setFlavour] = useState("שוקולד")
 
-
-
   return (
     <div className={'bg-white h-screen w-screen text-black text-center'}>  
     <AppHeader></AppHeader>
