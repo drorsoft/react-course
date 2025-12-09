@@ -1,7 +1,8 @@
-import { IceCreamTopping } from "../../models/IceCreamTopping";
-import cherry from "../../assets/svg/cherry.png"
+ 
+import cherry from "../../assets/images/cherry.png"
 import sprinkles from "../../assets/images/sprinkles.png"
 import { useEffect } from "react";
+import { IceCreamTopping } from "../../models/IcecreamTopping";
 
 
 

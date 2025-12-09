@@ -19,14 +19,11 @@ export function App() {
    
     <AppHeader></AppHeader>
   
- 
-
-    return (
-        <div className=" flex flex-col  h-full">
+        <div className=" flex flex-col  ">
             <div className='flex flex-col items-center justify-center   h-64'>
                 <IceCream serveType={cupOrCone} taste={flavour} topping={toppings} />
             </div>
-            <div className="bg-background-main  flex-1 flex flex-col items-center    ">
+            <div className="  flex-1 flex flex-col items-center    ">
                 <IceCreamBuilderControls serveType={cupOrCone}
                     taste={flavour} toppings={toppings} toggleServeType={setCupOrCone} setTaste={setFlavour} setToppings={setToppings} />
             

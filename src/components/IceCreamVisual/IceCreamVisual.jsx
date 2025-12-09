@@ -1,8 +1,8 @@
 import { useMemo } from 'react'
-import { IceCreamTaste } from '../../models/IceCreamTaste'
-import { IceCreamTopping } from '../../models/IceCreamTopping'
+ 
 import './IceCreamVisual.css'
-import { Toppings } from './IceCreamVisualToppings'
+import { Toppings } from './IceResultVisualToppings'
+import { IceCreamTaste } from '../../models/IcecreamTaste'
 
 
 

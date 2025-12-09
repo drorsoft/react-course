@@ -1,4 +1,4 @@
-import { useContext, useEffect, useMemo, useRef } from "react" 
+ 
 import { IceCreamTopping } from "../models/IcecreamTopping"
 import { IceCreamTaste } from "../models/IcecreamTaste"
  
@@ -42,6 +42,6 @@ p-2 w-22 ${toppings === IceCreamTopping.None ? 'bg-background-accent' : 'bg-seco
 
 
         </div>
-        {isAuth ? <button className="p-2 w-22 bg-white">לתשלום</button> : null}
+     
     </div>
 }
