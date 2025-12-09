@@ -1,12 +1,15 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import "./IceCreamResult.css";
 import { Toppings } from "./IceResultVisualToppings";
 import { IceCreamTaste } from "../../models/IcecreamTaste";
 
-export const IceCreamResult = ({ serveType, taste, topping }) => {
- 
+export const IceCreamResult = ({ serveType, taste, topping }) => { 
+    const [top, setTop] = useState(0)
 
+    setTimeout (()=>{
+        setTop(1)
+    }, 1000)
 
   const memoToppings = useMemo(() => <Toppings topping={topping} />, [topping]);
 
@@ -28,10 +31,10 @@ export const IceCreamResult = ({ serveType, taste, topping }) => {
       {taste ? (
         <div
           id="ice-cream-scoop"
-          className={`bg-amber-400 w-22 h-22 rounded-full relative top-8 ring-1 ring-slate-400  `}
+          className={`bg-amber-400 ${ top === 0 ? 'top-14' : 'top-8'} duration-150  transition-all  w-22 h-22 rounded-full relative  ring-1 ring-slate-400  `}
           style={{ backgroundColor: scoopColor(taste) }}
         >
-          {memoToppings}
+          {memoToppings} 
         </div>
       ) : null}
 

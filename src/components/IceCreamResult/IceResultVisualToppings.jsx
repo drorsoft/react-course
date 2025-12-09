@@ -7,8 +7,7 @@ import { IceCreamTopping } from "../../models/IcecreamTopping";
 
 
 export const Toppings = ({ topping }) => {
-
-
+ 
     switch (topping) {
         case IceCreamTopping.Cherry:
             return (
