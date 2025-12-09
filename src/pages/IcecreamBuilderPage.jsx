@@ -1,23 +1,21 @@
 import { useState } from 'react' 
-import { AppHeader } from '../AppHeader' 
-import { AppButton } from '../components/button/AppButton'
-import { AppLayout } from '../layouts/AppLayout'
 import { ServingType } from '../models/ServingType' 
-import { IceCream } from '../components/IceCreamResult/IceCreamResult' 
+import { IceCreamResult } from '../components/IceCreamResult/IceCreamResult' 
 import { IceCreamTaste } from '../models/IcecreamTaste'
 import { IceCreamTopping } from '../models/IcecreamTopping'
- 
- 
+  
 export function IcecreamBuilderPage() {
   const [cupOrCone, setCupOrCone] = useState(ServingType.Cone)
   const [flavour, setFlavour] = useState("שוקולד")
-  const [toppings, setToppings] = useState("שוקולד")
+  const [toppings, setToppings] = useState("שוקולד") 
  
   return (
  
         <div className=" flex flex-col  ">
             <div className='flex flex-col items-center justify-center   h-64'>
-                <IceCream serveType={cupOrCone} taste={flavour} topping={toppings} />
+              
+               <IceCreamResult serveType={cupOrCone} taste={flavour} topping={toppings} />  
+               
             </div>
             <div className="  flex-1 flex flex-col items-center    ">
               <div className=" gap-4 flex flex-col justify-start items-center p-4">

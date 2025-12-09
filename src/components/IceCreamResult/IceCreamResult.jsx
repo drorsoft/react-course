@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useEffect, useMemo } from 'react'
  
 import './IceCreamResult.css'
 import { Toppings } from './IceResultVisualToppings'
@@ -7,7 +7,18 @@ import { IceCreamTaste } from '../../models/IcecreamTaste'
 
 
 
-export const IceCream = ({ serveType, taste, topping }) => {
+export const IceCreamResult = ({ serveType, taste, topping }) => {
+    console.log()
+
+
+  useEffect(() => { 
+    console.log(serveType)
+
+    
+  
+
+  }, [serveType]);
+
     const memoToppings = useMemo(() => <Toppings topping={topping} />, [topping])
 
     const scoopColor = (taste) => {
