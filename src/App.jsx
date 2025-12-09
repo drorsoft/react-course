@@ -3,7 +3,7 @@ import { AppHeader } from './AppHeader'
 import { AppButton } from './components/button/AppButton'
 import { AppLayout } from './layouts/AppLayout'
 import { ServingType } from './models/ServingType' 
-import { IceCream } from './components/IceCreamResult/IceCreamVisual' 
+import { IceCream } from './components/IceCreamResult/IceCreamResult' 
 import { IceCreamTaste } from './models/IcecreamTaste'
 import { IceCreamTopping } from './models/IcecreamTopping'
  
