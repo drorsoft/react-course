@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
  
-import './IceCreamVisual.css'
+import './IceCreamResult.css'
 import { Toppings } from './IceResultVisualToppings'
 import { IceCreamTaste } from '../../models/IcecreamTaste'
 
