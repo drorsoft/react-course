@@ -1,10 +1,9 @@
 import { useState } from 'react' 
-import { AppHeader } from './AppHeader'
-import { IceCreamResult } from './components/IceCreamResult'
+import { AppHeader } from './AppHeader' 
 import { AppButton } from './components/button/AppButton'
 import { AppLayout } from './layouts/AppLayout'
 import { ServingType } from './models/ServingType' 
-import { IceCream } from './components/IceCreamVisual/IceCreamVisual' 
+import { IceCream } from './components/IceCreamResult/IceCreamVisual' 
 import { IceCreamTaste } from './models/IcecreamTaste'
 import { IceCreamTopping } from './models/IcecreamTopping'
  
