@@ -3,10 +3,10 @@ import { AppHeader } from './AppHeader'
 import { IceCreamResult } from './components/IceCreamResult'
 import { AppButton } from './components/button/AppButton'
 import { AppLayout } from './layouts/AppLayout'
-import { ServingType } from './models/ServingType'
-import { SelectionButton } from './components/SelectionButtons'
-import { IceCream } from './components/IceCreamVisual/IceCreamVisual'
-import { IceCreamBuilderControls } from './components/IceCreamBuilderControls'
+import { ServingType } from './models/ServingType' 
+import { IceCream } from './components/IceCreamVisual/IceCreamVisual' 
+import { IceCreamTaste } from './models/IcecreamTaste'
+import { IceCreamTopping } from './models/IcecreamTopping'
  
  
 export function App() {
@@ -24,15 +24,45 @@ export function App() {
                 <IceCream serveType={cupOrCone} taste={flavour} topping={toppings} />
             </div>
             <div className="  flex-1 flex flex-col items-center    ">
-                <IceCreamBuilderControls serveType={cupOrCone}
-                    taste={flavour} toppings={toppings} toggleServeType={setCupOrCone} setTaste={setFlavour} setToppings={setToppings} />
-            
-            </div>
-
-
-        </div>
- 
- 
+              <div className=" gap-4 flex flex-col justify-start items-center p-4">
+                      <div id='button-container' className='flex flex-col '>
+                          <button className={`p-2 w-12 bg-background-accent text-black hover:ring-1 ring-purple-700 rounded`} onClick={() => setCupOrCone(cupOrCone ===  ServingType.Cone ?  ServingType.Cup : ServingType.Cone )}>
+                              {cupOrCone === 'cone' ? 'גביע' : 'כוס'}
+                          </button>
+                      </div>
+                      <div id='taste-container' className='flex flex-row gap-4'>
+                          <button   className={`
+              p-2 w-22   text-black hover:ring-1 ring-purple-700 rounded
+              `} onClick={() => setFlavour(IceCreamTaste.Vanilla)}>
+                              וניל
+                          </button>
+                          <button className={`p-2 w-22   text-black hover:ring-1 ring-purple-700 rounded`} onClick={() => setFlavour(IceCreamTaste.Chocolate)}>
+                              שוקולד
+                          </button>
+                          <button className={`p-2 w-22   text-black hover:ring-1 ring-purple-700 rounded`} onClick={() => setFlavour(IceCreamTaste.Strawberry)}>
+                              תות שדה
+                          </button>
+              
+                      </div>
+                      <div id='toppings-container' className='flex flex-row gap-4'>
+                          <button className={`
+              p-2 w-22 ${toppings === IceCreamTopping.None ? 'bg-background-accent' : 'bg-secondary'}  text-black hover:ring-1 ring-purple-700 rounded
+              `} onClick={() => setToppings(IceCreamTopping.None)}>
+                              ללא
+                          </button>
+                          <button className={`p-2 w-22 ${toppings === IceCreamTopping.Cherry ? 'bg-background-accent' : 'bg-secondary'} text-black hover:ring-1 ring-purple-700 rounded`} onClick={() => setToppings(IceCreamTopping.Cherry)}>
+                              דובדבן
+                          </button>
+                          <button className={`p-2 w-22 ${toppings === IceCreamTopping.Sprinkles ? 'bg-background-accent' : 'bg-secondary'} text-black hover:ring-1 ring-purple-700 rounded`} onClick={() => setToppings(IceCreamTopping.Sprinkles)}>
+                              סוכריות
+                          </button>
+              
+              
+                      </div>
+                   
+                  </div>
+            </div>  
+        </div> 
     </div>
   )
 }

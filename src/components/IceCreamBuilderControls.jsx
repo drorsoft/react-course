@@ -3,10 +3,7 @@ import { IceCreamTopping } from "../models/IcecreamTopping"
 import { IceCreamTaste } from "../models/IcecreamTaste"
  
 
-export const IceCreamBuilderControls = ({ serveType, taste, toppings, toggleServeType, setTaste, setToppings }) => {
- 
-
-
+export const IceCreamBuilderControls = ({ serveType, taste, toppings, toggleServeType, setTaste, setToppings }) => { 
     return <div className=" gap-4 flex flex-col justify-start items-center p-4">
         <div id='button-container' className='flex flex-col '>
             <button className={`p-2 w-12 bg-background-accent text-black hover:ring-1 ring-purple-700 rounded`} onClick={() => toggleServeType()}>
