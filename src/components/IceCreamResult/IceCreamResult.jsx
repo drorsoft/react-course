@@ -12,7 +12,7 @@ export const IceCreamResult = ({ serveType, taste, topping }) => {
 
     setTimeout(() => {
       setAnimationState("down");
-    }, 2000);
+    }, 200);
   }, [taste]);
 
   const memoToppings = useMemo(() => <Toppings topping={topping} />, [topping]);
