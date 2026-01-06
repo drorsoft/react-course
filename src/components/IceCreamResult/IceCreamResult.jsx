@@ -36,7 +36,7 @@ export const IceCreamResult = ({ serveType, taste, topping }) => {
         <div
           id="ice-cream-scoop"
           className={`bg-amber-400 ${
-            animationState === "down" ? "top-8" : "-top-10"
+            animationState === "down" ? "top-8" : "-top-1"
           }     transition-all  w-22 h-22 rounded-full relative  ring-1 ring-slate-400  `}
           style={{ backgroundColor: scoopColor(taste) }}
         >
