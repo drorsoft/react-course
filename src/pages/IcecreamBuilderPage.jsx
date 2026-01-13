@@ -67,9 +67,9 @@ export function IcecreamBuilderPage() {
                   </div>
                       <div className="bg-background-main  flex-1 flex flex-col items-center    ">
                 
-                <div id='taste-container' className={` bg-blue-300 flex flex-row gap-4`}>
+                <div id='taste-container' className={`  flex flex-row gap-4`}>
                  
-                    <button onClick={gotoCheckout} disabled={!flavour}  className={`p-2 bg-button-accent disabled:opacity-50 text-black hover:ring-1 ring-purple-700 rounded`}  >
+                    <button onClick={gotoCheckout} disabled={!flavour}  className={`p-2  bg-emerald-300 disabled:opacity-50 text-black hover:ring-1 ring-purple-700 rounded`}  >
                         סיום הזמנה
                     </button>
                 </div>
