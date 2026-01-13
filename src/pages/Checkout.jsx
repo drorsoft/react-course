@@ -2,11 +2,12 @@ import { useParams, useSearchParams } from "react-router";
 import { AppInput } from "../components/AppInput";
 import { useState } from "react";
 
+ 
 export const Checkout = () => {
   const [checkoutData, setCheckoutData] = useState({
-    name: "",
+    name: "Chen peleg",
     phone: "",
-  });
+  }); 
 
   return (
     <section
@@ -19,27 +20,34 @@ export const Checkout = () => {
           className="w-full bg-white sm:w-96 border-0 sm:border-2 border-slate-400 md:shadow rounded-lg p-4 md:p-10 flex flex-col items-start justify-start gap-3"
         >
           <h1 className="text-xl font-bold">הזמנת גלידה</h1>
-          <form className="w-full">
+          <form className="w-full flex flex-col gap-3" onSubmit={(e)=> {
+            e.preventDefault()
+            
+            console.log(e.target)
+
+
+          }}>
             <AppInput
               onChange={(e) => {
                 setCheckoutData({
-                  ...checkoutData,
+                 ...checkoutData, 
                   name: e.target.value,
                 });
               }}
-              value={checkoutData.name}
+              defaultValue={checkoutData.name}
               placeholder={"שם המזמין"}
             />
-            <AppInput
+            <AppInput 
               onChange={(e) => {
                 setCheckoutData({
                   ...checkoutData,
                   phone: e.target.value,
                 });
               }}
-              value={checkoutData.phone}
+             
               placeholder={"טלפון"}
             />
+            <AppInput type={'submit'} />
           </form>
         </div>
       </div>
