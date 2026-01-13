@@ -3,14 +3,19 @@ import { ServingType } from '../models/ServingType'
 import { IceCreamResult } from '../components/IceCreamResult/IceCreamResult' 
 import { IceCreamTaste } from '../models/IcecreamTaste'
 import { IceCreamTopping } from '../models/IcecreamTopping'
+import { useNavigate } from 'react-router'
   
 export function IcecreamBuilderPage() {
   const [cupOrCone, setCupOrCone] = useState(ServingType.Cone)
-  const [flavour, setFlavour] = useState("שוקולד")
-  const [toppings, setToppings] = useState("שוקולד") 
+  const [flavour, setFlavour] = useState("")
+  const [toppings, setToppings] = useState(IceCreamTopping.None) 
+  const navigate = useNavigate()
  
-  return (
- 
+    function gotoCheckout() {
+          navigate('/checkout')
+    }
+
+  return ( 
         <div className=" flex flex-col  ">
             <div className='flex flex-col items-center justify-center   h-64'>
               
@@ -60,6 +65,15 @@ export function IcecreamBuilderPage() {
                       </div>
                    
                   </div>
+                      <div className="bg-background-main  flex-1 flex flex-col items-center    ">
+                
+                <div id='taste-container' className={` bg-blue-300 flex flex-row gap-4`}>
+                 
+                    <button onClick={gotoCheckout} disabled={!flavour}  className={`p-2 bg-button-accent disabled:opacity-50 text-black hover:ring-1 ring-purple-700 rounded`}  >
+                        סיום הזמנה
+                    </button>
+                </div>
+            </div>
             </div>  
         </div> 
  
