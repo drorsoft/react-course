@@ -34,7 +34,7 @@ export const Checkout = () => {
                   name: e.target.value,
                 });
               }}
-              defaultValue={checkoutData.name}
+              value={checkoutData.name}
               placeholder={"שם המזמין"}
             />
             <AppInput 
@@ -44,7 +44,9 @@ export const Checkout = () => {
                   phone: e.target.value,
                 });
               }}
-             
+             value ={
+                checkoutData.phone
+             }
               placeholder={"טלפון"}
             />
             <AppInput type={'submit'} />
