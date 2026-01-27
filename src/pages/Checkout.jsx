@@ -1,6 +1,9 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router";
 import { CheckoutStateType } from "../models/CheckoutStateType";
+import { isValidEmail } from "../validators/isValidEmail";
+import { isValidMobilePhone } from "../validators/isValidMobilePhone";
+import { AppInput } from "../components/AppInput";
  
 
  
@@ -77,9 +80,8 @@ export const Checkout = () => {
         setCheckoutState({ status: CheckoutStateType.Sending, message: '' });
         try {
             const orderWithItems = { ...order, items: cart };
-            const docRef = await firebaseProvider().addDoc(firebaseProvider().collection(db, "orders"), orderWithItems);
-            const orderId = docRef.id;
-            setCheckoutState({ status: CheckoutStateType.OrderReceived, message: orderId });
+            setCart ({})
+         
         } catch (error) {
             console.error("Error adding document: ", error);
             setCheckoutState({ status: CheckoutStateType.OrderFailed, message: error.message });
@@ -94,80 +96,51 @@ export const Checkout = () => {
                         הזמנת גלידה
                     </h1>
                     {checkoutState.status === CheckoutStateType.NotSent && <form onSubmit={submitHandler} className="flex flex-col gap-4 w-full" noValidate>
-                        <div className="my-2">
-                            <h2> פריטים בהזמנה</h2>
-                            <ul>
+                        <div className="my-2 flex flex-col gap-4">
+                        
+                     
 
-                                {cart.map((iceCream, index) => <li key={iceCream + index}>
-                                    <span> 🍦 </span>
-                                    {iceCreamAbstract(iceCream)}</li>)}
-                            </ul>
-                        </div>
-                        <div  >
-
-                            <TextInput
+                            <AppInput 
                                 placeholder={'שם פרטי ושם משפחה'}
-                                value={order.name}
-                                label={'שם'}
-                                errorText={validationErrors.name}
-                                onChange={(value) => setOrder(
+                                value={order.name}  
+                                onChange={(ev) => setOrder(
                                     {
                                         ...order,
-                                        name: value
+                                        name:  ev.target.value
                                     }
                                 )} />
 
-                            <TextInput
+                            <AppInput 
                                 placeholder={'אימייל'}
                                 type={'email'}
                                 value={order.email}
-                                label={'אימייל'}
-                                errorText={validationErrors.email}
-                                onChange={(value) => setOrder(
+                                
+                                onChange={(ev) => setOrder(
                                     {
                                         ...order,
-                                        email: value
+                                        email: ev.target.value
                                     }
                                 )} />
-                            <TextInput
+                            <AppInput 
                                 placeholder={'טלפון'}
                                 value={order.phone}
-                                type={'tel'}
-                                label={'טלפון'}
-                                errorText={validationErrors.phone}
-                                onChange={(value) => setOrder(
+                                type={'tel'}  
+                                onChange={(ev) => setOrder(
                                     {
                                         ...order,
-                                        phone: value
+                                        phone:  ev.target.value
                                     }
                                 )} />
-                            <TextInput
+                            <AppInput 
                                 placeholder={'כתובת'}
-                                value={order.address}
-                                label={'כתובת'}
-                                errorText={validationErrors.address}
-                                onChange={(value) => setOrder(
+                                value={order.address}  
+                                onChange={(ev) => setOrder(
                                     {
                                         ...order,
-                                        address: value
+                                        address:  ev.target.value
                                     }
                                 )} />
-                            <AppSelect
-                                label={'שיטת תשלום'}
-                                value={order.paymentMethod}
-                                errorText={validationErrors.paymentMethod}
-                                onChange={(value) => setOrder(
-                                    {
-                                        ...order,
-                                        paymentMethod: value
-                                    }
-                                )}
-
-                                options={[
-                                    { label: 'אשראי', value: 'credit' },
-                                    { label: 'מזומן', value: 'cash' },
-                                    { label: 'ביט', value: 'bit' },
-                                ]} />
+                          
 
 
                         </div>
