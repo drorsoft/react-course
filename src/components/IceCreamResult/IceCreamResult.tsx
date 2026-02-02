@@ -1,10 +1,16 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import "./IceCreamResult.css";
 import { Toppings } from "./IceResultVisualToppings";
 import { IceCreamTaste } from "../../models/IcecreamTaste";
 
-export const IceCreamResult = ({ serveType, taste, topping }) => {
+interface IceCreamResultProps {
+  serveType: string;
+  taste: string;
+  topping: string;
+}
+
+export const IceCreamResult = ({ serveType, taste, topping }: IceCreamResultProps) => {
   const [animationState, setAnimationState] = useState("up");
 
   useEffect(() => {
@@ -17,7 +23,7 @@ export const IceCreamResult = ({ serveType, taste, topping }) => {
 
   const memoToppings = useMemo(() => <Toppings topping={topping} />, [topping]);
 
-  const scoopColor = (taste) => {
+  const scoopColor = (taste: string) => {
     switch (taste) {
       case IceCreamTaste.Chocolate:
         return "#704b03";
