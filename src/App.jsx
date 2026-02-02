@@ -3,13 +3,30 @@ import { AppHeader } from "./AppHeader";
 import { IcecreamBuilderPage } from "./pages/IcecreamBuilderPage";
 import { AppRouter } from "./router/AppRouter";
 import { BrowserRouter } from "react-router";
+
+const anotherAsyncFunction = async () => {
+  return 2;
+};
+function promiseFn () {
+  return new Promise (resolve=> {
+    anotherAsyncFunction().then (res2=> {
+     resolve (2 *res2 )  
+    })
+  })
+}
+async function asyncFuncion() {
+  const firtsResult = await anotherAsyncFunction();
+  return firtsResult * 2;
+}
 export function App() {
   useEffect(() => {
-    fetch("http://api.open-notify.org/iss-now.json").then((response) => {
-       response.json().then((json) => {
-        console.log(json);
-      });
+    const promise = new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({ abc: "this is resolved 🙂", arr: [] });
+      }, 3000);
     });
+
+    asyncFuncion().then((r) => console.log(r));
   }, []);
 
   return (
