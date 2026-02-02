@@ -1,12 +1,13 @@
  
 import cherry from "../../assets/images/cherry.png"
 import sprinkles from "../../assets/images/sprinkles.png"
-import { useEffect } from "react";
 import { IceCreamTopping } from "../../models/IcecreamTopping";
 
+interface ToppingsProps {
+  topping: string;
+}
 
-
-export const Toppings = ({ topping }) => {
+export const Toppings = ({ topping }: ToppingsProps) => {
  
     switch (topping) {
         case IceCreamTopping.Cherry:

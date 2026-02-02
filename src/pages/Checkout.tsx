@@ -1,14 +1,32 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 import { CheckoutStateType } from "../models/CheckoutStateType";
 import { isValidEmail } from "../validators/isValidEmail";
 import { isValidMobilePhone } from "../validators/isValidMobilePhone";
 import { AppInput } from "../components/AppInput";
  
+interface Order {
+    name: string;
+    email: string;
+    phone: string;
+    address: string;
+    paymentMethod: string;
+}
 
- 
+interface ValidationErrors {
+    name: string;
+    email: string;
+    phone: string;
+    address: string;
+    paymentMethod: string;
+}
 
-const demoOrder = {
+interface CheckoutState {
+    status: string;
+    message: string;
+}
+
+const demoOrder: Order = {
     "name": "chen",
     "email": "chen@mail.com",
     "phone": "0546734399",
@@ -17,19 +35,19 @@ const demoOrder = {
 }
 
 export const Checkout = () => {
-    const [checkoutState, setCheckoutState] = useState({ status: CheckoutStateType.NotSent, message: '' }); // NotSent | Sending | OrderReceived | OrderFailed
+    const [checkoutState, setCheckoutState] = useState<CheckoutState>({ status: CheckoutStateType.NotSent, message: '' }); // NotSent | Sending | OrderReceived | OrderFailed
 
     const navigate = useNavigate();
 
-    const  [ cart, setCart]   = useState({});
-    const [order, setOrder] = useState({
+    const  [ cart, setCart]   = useState<Record<string, any>>({});
+    const [order, setOrder] = useState<Order>({
         name: '',
         email: '',
         phone: '',
         address: '',
         paymentMethod: ''
     });
-    const [validationErrors, setValidationErrors] = useState({
+    const [validationErrors, setValidationErrors] = useState<ValidationErrors>({
         name: '',
         email: '',
         phone: '',
@@ -38,7 +56,7 @@ export const Checkout = () => {
     });
     const validateForm = () => {
 
-        const errors = {
+        const errors: ValidationErrors = {
             name: '',
             email: '',
             phone: '',
@@ -46,8 +64,8 @@ export const Checkout = () => {
             paymentMethod: ''
         };
         for (const key in order) {
-            if (order[key].trim() === '') {
-                errors[key] = 'שדה חובה';
+            if (order[key as keyof Order].trim() === '') {
+                errors[key as keyof ValidationErrors] = 'שדה חובה';
             }
         }
 
@@ -67,11 +85,11 @@ export const Checkout = () => {
     }
     const finishOrderProcess = () => {
         setCheckoutState({ status: CheckoutStateType.NotSent, message: '' });
-        setCart([]);
+        setCart({});
         setOrder(demoOrder);
         navigate('/')
     }
-    const submitHandler = async (e) => {
+    const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const errors = validateForm();
         if (Object.values(errors).some(error => error !== '')) {
@@ -84,7 +102,7 @@ export const Checkout = () => {
          
         } catch (error) {
             console.error("Error adding document: ", error);
-            setCheckoutState({ status: CheckoutStateType.OrderFailed, message: error.message });
+            setCheckoutState({ status: CheckoutStateType.OrderFailed, message: (error as Error).message });
         }
     }
 

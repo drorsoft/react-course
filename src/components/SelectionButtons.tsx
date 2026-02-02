@@ -1,4 +1,8 @@
-export const SelectionButton = ( {setFlavour})=> {
+interface SelectionButtonProps {
+  setFlavour: (flavour: string) => void;
+}
+
+export const SelectionButton = ({ setFlavour }: SelectionButtonProps) => {
     return (   <div className='flex flex-row gap-6 w-full justify-center'>
        <button onClick={() =>  setFlavour("שוקולד")}>
         שוקולד

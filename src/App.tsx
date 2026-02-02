@@ -1,26 +1,28 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { AppHeader } from "./AppHeader";
-import { IcecreamBuilderPage } from "./pages/IcecreamBuilderPage";
 import { AppRouter } from "./router/AppRouter";
 import { BrowserRouter } from "react-router";
 
-const anotherAsyncFunction = async () => {
+const anotherAsyncFunction = async (): Promise<number> => {
   return 2;
 };
-function promiseFn () {
-  return new Promise (resolve=> {
-    anotherAsyncFunction().then (res2=> {
-     resolve (2 *res2 )  
+
+function promiseFn(): Promise<number> {
+  return new Promise(resolve => {
+    anotherAsyncFunction().then(res2 => {
+      resolve(2 * res2)
     })
   })
 }
-async function asyncFuncion() {
+
+async function asyncFuncion(): Promise<number> {
   const firtsResult = await anotherAsyncFunction();
   return firtsResult * 2;
 }
+
 export function App() {
   useEffect(() => {
-    const promise = new Promise((resolve) => {
+    const promise = new Promise<{ abc: string; arr: any[] }>((resolve) => {
       setTimeout(() => {
         resolve({ abc: "this is resolved 🙂", arr: [] });
       }, 3000);
