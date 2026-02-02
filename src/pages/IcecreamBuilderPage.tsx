@@ -6,9 +6,9 @@ import { IceCreamTopping } from '../models/IcecreamTopping'
 import { useNavigate } from 'react-router'
   
 export function IcecreamBuilderPage() {
-  const [cupOrCone, setCupOrCone] = useState<string>(ServingType.Cone)
+  const [cupOrCone, setCupOrCone] = useState<ServingType>(ServingType.Cone)
   const [flavour, setFlavour] = useState<string>("")
-  const [toppings, setToppings] = useState<string>(IceCreamTopping.None) 
+  const [toppings, setToppings] = useState<IceCreamTopping>(IceCreamTopping.None) 
   const navigate = useNavigate()
  
     function gotoCheckout() {
