@@ -4,13 +4,16 @@ import "./IceCreamResult.css";
 import { Toppings } from "./IceResultVisualToppings";
 import { IceCreamTaste } from "../../models/IcecreamTaste";
 
-interface IceCreamResultProps {
+export const IceCreamResult = ({
+  serveType,
+  taste,
+  topping,
+}: {
   serveType: string;
   taste: string;
   topping: string;
-}
-
-export const IceCreamResult = ({ serveType, taste, topping }: IceCreamResultProps) => {
+  testme: string;
+}) => {
   const [animationState, setAnimationState] = useState("up");
 
   useEffect(() => {

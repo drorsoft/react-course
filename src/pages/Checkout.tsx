@@ -35,7 +35,7 @@ const demoOrder: Order = {
 }
 
 export const Checkout = () => {
-    const [checkoutState, setCheckoutState] = useState<CheckoutState>({ status: CheckoutStateType.NotSent, message: '' }); // NotSent | Sending | OrderReceived | OrderFailed
+    const [checkoutState, setCheckoutState] = useState<CheckoutState>({ status: CheckoutStateType.NotSent, message: '' }); 
 
     const navigate = useNavigate();
 

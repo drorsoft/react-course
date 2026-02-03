@@ -1,13 +1,15 @@
-interface SelectionButtonProps {
-  setFlavour: (flavour: string) => void;
-}
+// interface SelectionButtonProps {
+//   setFlavour: (flavour: string) => void;
+// }
 
-export const SelectionButton = ({ setFlavour }: SelectionButtonProps) => {
+export const SelectionButton = ({setFlavour} : {
+  setFlavour: (flavour: string) => void;
+}) => {
     return (   <div className='flex flex-row gap-6 w-full justify-center'>
-       <button onClick={() =>  setFlavour("שוקולד")}>
+       <button onClick={() =>   setFlavour("שוקולד")}>
         שוקולד
         </button>
-      <button onClick={() =>  setFlavour("וניל")}>
+      <button onClick={() =>   setFlavour("וניל")}>
         וניל
       </button>
           <button onClick={() =>  setFlavour("תות")}>
