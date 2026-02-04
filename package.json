@@ -9,6 +9,7 @@
     "build": "vite build",
     "main": "node ./scripts/main.js",
     "lint": "eslint .",
+    "typecheck" : "tsc --noEmit",
     "preview": "vite preview",
     "test" : "vitest --run", 
     "runjs": "node lessons/examples/javascript-features.js"
