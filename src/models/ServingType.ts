@@ -6,8 +6,3 @@ export const ServingType = {
 } as const;
 
 export type ServingType = (typeof ServingType)[keyof typeof ServingType];
-
-const stub: StubInterface = {
-  serveType: "cone",
-  tastessss: "vanilla",
-};
