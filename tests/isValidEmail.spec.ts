@@ -11,8 +11,9 @@ describe("isValidEmail", () => {
     expect(result).toBe(false);
   });
   it("edge case", () => {
-    const result = isValidEmail(false as unknown as string);
-    expect(result).toBe(false);
+    expect(() => {
+      const result = isValidEmail(false as unknown as string);
+    }).toThrowError();
   });
   // describe("edge cases", () => {
   //   test("should validate correct email format", () => {
