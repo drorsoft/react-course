@@ -5,11 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "compile-main-types" :"tsc ./scripts/main-types.ts", 
+    "compile-main-types": "tsc ./scripts/main-types.ts",
     "build": "vite build",
     "main": "node ./scripts/main.js",
     "lint": "eslint .",
+    "typecheck" : "tsc --noEmit",
     "preview": "vite preview",
+    "test" : "vitest --run", 
     "runjs": "node lessons/examples/javascript-features.js"
   },
   "dependencies": {
@@ -33,6 +35,7 @@
     "globals": "^16.5.0",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.54.0",
-    "vite": "^7.2.2"
+    "vite": "^7.2.2",
+    "vitest": "^4.0.18"
   }
 }
