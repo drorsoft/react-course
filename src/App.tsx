@@ -12,7 +12,7 @@ export function App() {
   return (
     <div
       className={
-        "bg-amber-300 transition-all duration-300  h-screen w-screen text-black text-center"
+        "bg-amber-300 w-100 transition-all duration-300  h-screen w-screen text-black text-center"
       }
     >
       <BrowserRouter>
